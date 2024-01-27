@@ -17,7 +17,7 @@ public class FlyBehaviour : GenericBehaviour
 	{
 		// Set up the references.
 		flyBool = Animator.StringToHash("Fly");
-		col = this.GetComponent<CapsuleCollider>();
+		col = this.GetComponentInChildren<CapsuleCollider>();
 		// Subscribe this behaviour on the manager.
 		behaviourManager.SubscribeBehaviour(this);
 	}

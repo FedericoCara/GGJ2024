@@ -7,14 +7,19 @@ public class Ragdoll : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private List<MonoBehaviour> behaviours;
     [SerializeField] private Collider[] colliders;
+    [SerializeField] private Rigidbody normalRigidBody;
+    [SerializeField] private Transform normalTransform;
+    [SerializeField] private Transform ragdollTransform;
+    [SerializeField] private ThirdPersonOrbitCamBasic normalCam;
     
     void Start()
     {
         SetEnabled(false);
     }
-
+ 
     void SetEnabled(bool enabled)
     {
+        normalRigidBody.isKinematic = enabled;
         foreach (var collider in colliders)
         {
             collider.enabled = enabled;
@@ -25,8 +30,16 @@ public class Ragdoll : MonoBehaviour
         }
 
         animator.enabled = !enabled;
+
+        SwitchCam(enabled);
     }
-    
+
+    private void SwitchCam(bool enabled)
+    {
+        normalCam.player = enabled ? ragdollTransform : normalTransform;
+        normalCam.ResetTargetOffsets();
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
