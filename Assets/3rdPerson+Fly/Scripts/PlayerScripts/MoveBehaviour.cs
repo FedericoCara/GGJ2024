@@ -62,7 +62,7 @@ public class MoveBehaviour : GenericBehaviour
 			behaviourManager.LockTempBehaviour(this.behaviourCode);
 			behaviourManager.GetAnim.SetBool(jumpBool, true);
 			// Is a locomotion jump?
-			if (behaviourManager.GetAnim.GetFloat(speedFloat) > 0.1)
+			if (behaviourManager.GetAnim.GetFloat(SpeedParameterHash) > 0.1)
 			{
 				// Temporarily change player friction to pass through obstacles.
 				GetComponent<CapsuleCollider>().material.dynamicFriction = 0f;
@@ -126,7 +126,7 @@ public class MoveBehaviour : GenericBehaviour
 			speed = sprintSpeed;
 		}
 
-		behaviourManager.GetAnim.SetFloat(speedFloat, speed, speedDampTime, Time.deltaTime);
+		behaviourManager.GetAnim.SetFloat(SpeedParameterHash, speed, speedDampTime, Time.deltaTime);
 	}
 
 	// Remove vertical rigidbody velocity.

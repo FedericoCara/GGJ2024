@@ -1,5 +1,6 @@
 ﻿	using UnityEngine;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 // This class manages which player behaviour is active or overriding, and call its local functions.
 // Contains basic setup and common functions used by all the player behaviours.
@@ -25,7 +26,7 @@ public class BasicBehaviour : MonoBehaviour
 	private List<GenericBehaviour> behaviours;            // The list containing all the enabled player behaviours.
 	private List<GenericBehaviour> overridingBehaviours;  // List of current overriding behaviours.
 	private Rigidbody rBody;                              // Reference to the player's rigidbody.
-	private int groundedBool;                             // Animator variable related to whether or not the player is on the ground.
+	public static readonly int GroundedParameterHash = Animator.StringToHash("Grounded");                             // Animator variable related to whether or not the player is on the ground.
 	private Vector3 colExtents;                           // Collider extents for ground test. 
 
 	// Get current horizontal and vertical axes.
@@ -54,9 +55,7 @@ public class BasicBehaviour : MonoBehaviour
 		vFloat = Animator.StringToHash("V");
 		camScript = playerCamera.GetComponent<ThirdPersonOrbitCamBasic> ();
 		rBody = GetComponent<Rigidbody> ();
-
-		// Grounded verification variables.
-		groundedBool = Animator.StringToHash("Grounded");
+		
 		colExtents = GetComponent<Collider>().bounds.extents;
 	}
 
@@ -85,7 +84,7 @@ public class BasicBehaviour : MonoBehaviour
 			changedFOV = false;
 		}
 		// Set the grounded test on the Animator Controller.
-		anim.SetBool(groundedBool, IsGrounded());
+		anim.SetBool(GroundedParameterHash, IsGrounded());
 	}
 
 	// Call the FixedUpdate functions of the active or overriding behaviours.
@@ -331,7 +330,7 @@ public class BasicBehaviour : MonoBehaviour
 public abstract class GenericBehaviour : MonoBehaviour
 {
 	//protected Animator anim;                       // Reference to the Animator component.
-	protected int speedFloat;                      // Speed parameter on the Animator.
+	public static readonly int SpeedParameterHash = Animator.StringToHash("Speed");                      // Speed parameter on the Animator.
 	protected BasicBehaviour behaviourManager;     // Reference to the basic behaviour manager.
 	protected int behaviourCode;                   // The code that identifies a behaviour.
 	protected bool canSprint;                      // Boolean to store if the behaviour allows the player to sprint.
@@ -340,7 +339,6 @@ public abstract class GenericBehaviour : MonoBehaviour
 	{
 		// Set up the references.
 		behaviourManager = GetComponent<BasicBehaviour> ();
-		speedFloat = Animator.StringToHash("Speed");
 		canSprint = true;
 
 		// Set the behaviour code based on the inheriting class.
