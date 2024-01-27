@@ -49,15 +49,15 @@ public class BasicBehaviour : MonoBehaviour
 		// Set up the references.
 		behaviours = new List<GenericBehaviour> ();
 		overridingBehaviours = new List<GenericBehaviour>();
-		anim = GetComponent<Animator> ();
+		anim = GetComponentInChildren<Animator> ();
 		hFloat = Animator.StringToHash("H");
 		vFloat = Animator.StringToHash("V");
 		camScript = playerCamera.GetComponent<ThirdPersonOrbitCamBasic> ();
-		rBody = GetComponent<Rigidbody> ();
+		rBody = GetComponentInChildren<Rigidbody> ();
 
 		// Grounded verification variables.
 		groundedBool = Animator.StringToHash("Grounded");
-		colExtents = GetComponent<Collider>().bounds.extents;
+		colExtents = GetComponentInChildren<Collider>().bounds.extents;
 	}
 
 	void Update()

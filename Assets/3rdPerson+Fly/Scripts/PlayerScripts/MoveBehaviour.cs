@@ -65,8 +65,8 @@ public class MoveBehaviour : GenericBehaviour
 			if (behaviourManager.GetAnim.GetFloat(speedFloat) > 0.1)
 			{
 				// Temporarily change player friction to pass through obstacles.
-				GetComponent<CapsuleCollider>().material.dynamicFriction = 0f;
-				GetComponent<CapsuleCollider>().material.staticFriction = 0f;
+				GetComponentInChildren<CapsuleCollider>().material.dynamicFriction = 0f;
+				GetComponentInChildren<CapsuleCollider>().material.staticFriction = 0f;
 				// Remove vertical velocity to avoid "super jumps" on slope ends.
 				RemoveVerticalVelocity();
 				// Set jump vertical impulse velocity.
@@ -88,8 +88,8 @@ public class MoveBehaviour : GenericBehaviour
 			{
 				behaviourManager.GetAnim.SetBool(groundedBool, true);
 				// Change back player friction to default.
-				GetComponent<CapsuleCollider>().material.dynamicFriction = 0.6f;
-				GetComponent<CapsuleCollider>().material.staticFriction = 0.6f;
+				GetComponentInChildren<CapsuleCollider>().material.dynamicFriction = 0.6f;
+				GetComponentInChildren<CapsuleCollider>().material.staticFriction = 0.6f;
 				// Set jump related parameters.
 				jump = false;
 				behaviourManager.GetAnim.SetBool(jumpBool, false);
@@ -176,14 +176,14 @@ public class MoveBehaviour : GenericBehaviour
 		// Slide on vertical obstacles
 		if (behaviourManager.IsCurrentBehaviour(this.GetBehaviourCode()) && collision.GetContact(0).normal.y <= 0.1f)
 		{
-			GetComponent<CapsuleCollider>().material.dynamicFriction = 0f;
-			GetComponent<CapsuleCollider>().material.staticFriction = 0f;
+			GetComponentInChildren<CapsuleCollider>().material.dynamicFriction = 0f;
+			GetComponentInChildren<CapsuleCollider>().material.staticFriction = 0f;
 		}
 	}
 	private void OnCollisionExit(Collision collision)
 	{
 		isColliding = false;
-		GetComponent<CapsuleCollider>().material.dynamicFriction = 0.6f;
-		GetComponent<CapsuleCollider>().material.staticFriction = 0.6f;
+		GetComponentInChildren<CapsuleCollider>().material.dynamicFriction = 0.6f;
+		GetComponentInChildren<CapsuleCollider>().material.staticFriction = 0.6f;
 	}
 }

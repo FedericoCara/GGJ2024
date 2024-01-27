@@ -7,6 +7,7 @@ public class Ragdoll : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private List<MonoBehaviour> behaviours;
     [SerializeField] private Collider[] colliders;
+    [SerializeField] private Rigidbody normalRigidBody;
     [SerializeField] private Transform normalTransform;
     [SerializeField] private Transform ragdollTransform;
     [SerializeField] private ThirdPersonOrbitCamBasic normalCam;
@@ -15,9 +16,10 @@ public class Ragdoll : MonoBehaviour
     {
         SetEnabled(false);
     }
-
+ 
     void SetEnabled(bool enabled)
     {
+        normalRigidBody.isKinematic = enabled;
         foreach (var collider in colliders)
         {
             collider.enabled = enabled;
