@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6ee8b05e033a6a14a9fd38aa8dd0f59c
+guid: dfdb5235d3f308a4ba6b692b1a3470c9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -154,6 +154,35 @@ ModelImporter:
       internalID: 1473664779095469666
       firstFrame: 0
       lastFrame: 21
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Skeleton|Walk
+      takeName: Skeleton|Walk
+      internalID: 224802876785476837
+      firstFrame: 0
+      lastFrame: 31
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
