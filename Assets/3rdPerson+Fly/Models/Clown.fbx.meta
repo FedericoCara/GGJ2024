@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6c480d74428045443a23042e59a8f9da
+guid: e95d81a83addb974c8727d033c7c1e26
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -327,7 +327,7 @@ ModelImporter:
       takeName: Skeleton|TPOSE
       internalID: 2722573223224975926
       firstFrame: 0
-      lastFrame: 0
+      lastFrame: 2
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
