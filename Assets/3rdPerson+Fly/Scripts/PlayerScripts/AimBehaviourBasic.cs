@@ -63,7 +63,7 @@ public class AimBehaviourBasic : GenericBehaviour
 			aimCamOffset.x = Mathf.Abs(aimCamOffset.x) * signal;
 			aimPivotOffset.x = Mathf.Abs(aimPivotOffset.x) * signal;
 			yield return new WaitForSeconds(0.1f);
-			behaviourManager.GetAnim.SetFloat(speedFloat, 0);
+			behaviourManager.GetAnim.SetFloat(SpeedParameterHash, 0);
 			// This state overrides the active one.
 			behaviourManager.OverrideWithBehaviour(this);
 		}
