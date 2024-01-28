@@ -79,8 +79,8 @@ GameObject:
   - component: {fileID: 4766415323452025743}
   - component: {fileID: 5484707721191193882}
   - component: {fileID: 1517855195059837500}
-  - component: {fileID: 3061456643642645344}
   - component: {fileID: 5341211714734992516}
+  - component: {fileID: 2524369014335356202}
   m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -162,14 +162,6 @@ Behaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6870170686374784563}
   m_Enabled: 1
---- !u!81 &3061456643642645344
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6870170686374784563}
-  m_Enabled: 1
 --- !u!114 &5341211714734992516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +184,19 @@ MonoBehaviour:
   minVerticalAngle: -60
   XAxis: Analog X
   YAxis: Analog Y
+--- !u!114 &2524369014335356202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6870170686374784563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 3156841553124990704}
 --- !u!1001 &2814243422107870113
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1162,6 +1167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedDampTime: 0.1
+  _hp: 100
   _maxHP: 100
 --- !u!114 &6257900706002257452
 MonoBehaviour:
@@ -1210,10 +1216,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cbedad5692384219a71eab9e57b0d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabController: {fileID: 0}
+  grabController: {fileID: 114714928762996528}
   _normalAttackDamage: 40
+  normalAttackAudio:
+    Guid:
+      Data1: 702903957
+      Data2: 1078674432
+      Data3: 1022884533
+      Data4: -1701863517
+    Path: event:/SFXs/Golpes
   _horizontalAttackDamage: 60
+  horizontalAttackAudio:
+    Guid:
+      Data1: 702903957
+      Data2: 1078674432
+      Data3: 1022884533
+      Data4: -1701863517
+    Path: event:/SFXs/Golpes
   _backhandAttackDamage: 100
+  backhandAttackAudio:
+    Guid:
+      Data1: 702903957
+      Data2: 1078674432
+      Data3: 1022884533
+      Data4: -1701863517
+    Path: event:/SFXs/Golpes
 --- !u!114 &5510020132293207705
 MonoBehaviour:
   m_ObjectHideFlags: 0
