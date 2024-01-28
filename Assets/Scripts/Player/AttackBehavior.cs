@@ -44,9 +44,9 @@ public class AttackBehavior : MonoBehaviour
             {
                 return _horizontalAttackDamage;
             }
-            else if (_doingHorizontalAttack)
+            else if (_doingBackhandAttack)
             {
-                return _horizontalAttackDamage;
+                return _backhandAttackDamage;
             }
             else
             {

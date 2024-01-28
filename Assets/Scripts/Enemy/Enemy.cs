@@ -45,6 +45,7 @@ public class Enemy : Entity
         _agent = GetComponent<NavMeshAgent>();
         _agent.updatePosition = false;
         _agent.updateRotation = false;
+        Animator.SetBool("Interrupt to Take Hit", true);
     }  
 
     protected void Update()

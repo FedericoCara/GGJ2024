@@ -557,8 +557,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _owner: {fileID: 0}
+  _hitsBeforeDestruction: 5
+  _remainingHitsBeforeDestruction: 0
   hips: {fileID: 3921145935595339372}
   grabbingPoint: {fileID: 220654432774791015}
+  _destructionEffectPrefab: {fileID: 104829970813648393, guid: d3015b7eea383f64d8b81f965cc466e7,
+    type: 3}
 --- !u!114 &1048260037726606111
 MonoBehaviour:
   m_ObjectHideFlags: 0

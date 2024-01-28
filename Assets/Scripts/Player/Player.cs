@@ -33,6 +33,11 @@ public class Player : Entity
         return result;
     }
 
+    public void RemoveEquippedRagdoll()
+    {
+        _grabController.LetGo();
+    }
+
     protected override void Awake()
     {
         base.Awake();

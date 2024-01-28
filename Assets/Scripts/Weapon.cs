@@ -20,9 +20,14 @@ public class Weapon : MonoBehaviour
         }
 
         Entity target = other.GetComponent<Entity>();
-        if (target != null)
+        if (target != null && _owner != target)
         {
-            _owner.HandleWeaponCollision(target);
+            OnCollisionWithEntity(target);
         }
+    }
+
+    protected virtual void OnCollisionWithEntity(Entity target)
+    {
+        _owner.HandleWeaponCollision(target);
     }
 }
