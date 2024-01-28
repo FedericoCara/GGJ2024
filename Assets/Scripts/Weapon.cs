@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public abstract class Weapon : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
     private Entity _owner;
     public Entity Owner
