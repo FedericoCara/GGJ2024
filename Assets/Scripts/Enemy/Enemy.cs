@@ -55,7 +55,7 @@ public class Enemy : Entity
     {
         _color = color;
         var material = _renderer.material;
-        material.SetColor("Color", color);
+        material.SetColor("_Color", color);
         _renderer.material = material;
     }
 

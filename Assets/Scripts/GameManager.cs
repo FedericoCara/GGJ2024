@@ -134,7 +134,10 @@ public class GameManager : MonoBehaviour
             _startButton.SetActive(true);
         }
 
+        if (_initialRagdoll != null)
+        {
         Destroy(_initialRagdoll.gameObject);
+        }
 
         player.gameObject.tag = "Untagged";
         _initialRagdoll = _player.GetComponent<GraspableRagdoll>();
