@@ -27,6 +27,8 @@ public class Enemy : Entity
 
     private Action<Enemy> _onEnemyDied;
 
+    protected override float AttackDamage => _attack;
+
     public void SetOnEnemyDiedAction(Action<Enemy> action)
     {
         _onEnemyDied = action;
@@ -178,6 +180,7 @@ float speed = 0;
     protected override void Die()
     {
         base.Die();
+        _agent.enabled = false;
         _onEnemyDied?.Invoke(this);
     }
 }
