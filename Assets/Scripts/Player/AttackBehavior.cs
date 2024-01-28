@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class AttackBehavior : MonoBehaviour
 {
+    public static readonly int AttackNormal = Animator.StringToHash("AttackNormal");
+    public static readonly int AttackBackhand = Animator.StringToHash("AttackBackhand");
+    public static readonly int AttackHorizontal = Animator.StringToHash("AttackHorizontal");
     [SerializeField] private GrabController grabController;
 
     [SerializeField]
@@ -17,9 +20,6 @@ public class AttackBehavior : MonoBehaviour
     private float _backhandAttackDamage = 100;
     
     private Animator _animator;
-    private static readonly int AttackNormal = Animator.StringToHash("AttackNormal");
-    private static readonly int AttackBackhand = Animator.StringToHash("AttackBackhand");
-    private static readonly int AttackHorizontal = Animator.StringToHash("AttackHorizontal");
     private bool _waitingToResetTriggers;
     private bool _doingNormalAttack;
     private bool _doingHorizontalAttack;
