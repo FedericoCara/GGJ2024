@@ -55,7 +55,7 @@ public class AttackBehavior : MonoBehaviour
         }
     }
     
-    public bool IsAttacking => _doingNormalAttack || _doingHorizontalAttack || _doingHorizontalAttack;
+    public bool IsAttacking => _doingNormalAttack || _doingHorizontalAttack || _doingBackhandAttack;
 
     public void ApplyFinishingBlow(FinishingBlowReceiver receiver)
     {
