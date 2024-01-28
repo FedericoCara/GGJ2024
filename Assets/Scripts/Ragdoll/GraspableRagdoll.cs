@@ -5,8 +5,11 @@ using UnityEngine;
 
 public class GraspableRagdoll : Weapon
 {
+    [SerializeField] private int _hitsBeforeDestruction = 5;
+    [SerializeField] private int _remainingHitsBeforeDestruction;
     [SerializeField] private Transform hips;
     [SerializeField] private Transform grabbingPoint;
+    [SerializeField] private GameObject _destructionEffectPrefab;
 
     private BoxCollider _collider;
     private List<Rigidbody> _rigidbodies = new();
@@ -18,13 +21,13 @@ public class GraspableRagdoll : Weapon
     {
         _defaultLayer = gameObject.layer;
         _grabbedLayer = LayerMask.NameToLayer("Grabbed Ragdoll");
+        _remainingHitsBeforeDestruction = _hitsBeforeDestruction;
     }
 
     public void SetGrabbedBy(Transform handTransform)
     {
         EnablePhysics(false);        
         transform.SetParent(handTransform);
-        hips.rotation = Quaternion.identity;
         transform.position = handTransform.position - grabbingPoint.position + transform.position;
         SetLayer(_grabbedLayer);
     }
@@ -39,6 +42,24 @@ public class GraspableRagdoll : Weapon
              Mathf.Max(transformPosition.y+1f,position.y),
                                         position.z) + grabberForward;
         SetLayer(_defaultLayer);
+    }
+
+    protected override bool OnCollisionWithEntity(Entity target)
+    {
+        if (base.OnCollisionWithEntity(target))
+        {
+            if (--_remainingHitsBeforeDestruction <= 0)
+            {
+                var player = Owner as Player;
+                player.RemoveEquippedRagdoll();
+                Instantiate(_destructionEffectPrefab, hips.transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
+
+            return true;
+        }
+
+        return false;
     }
 
     private void EnablePhysics(bool enable = true)

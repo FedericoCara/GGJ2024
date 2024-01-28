@@ -9,16 +9,16 @@ public abstract class Entity : MonoBehaviour
     private static readonly int TakeHitTriggerID = Animator.StringToHash("Take Hit");
 
     [SerializeField]
-    private float _hp = 100;
+    protected float _hp = 100;
 
     [SerializeField]
-    private float _maxHP = 100;
+    protected float _maxHP = 100;
 	
     private Vector3 colExtents;
 
     private Animator _animator;
 
-    private bool _isAttacking;
+    private Action<Entity> _onDied;
 
     public bool IsDead => _hp <= 0;
 
@@ -27,21 +27,33 @@ public abstract class Entity : MonoBehaviour
     protected abstract bool IsAttacking { get; }
 
     protected Animator Animator => _animator;
-    
-    public void HandleWeaponCollision(Entity target)
+
+    public void SetOnEnemyDiedAction(Action<Entity> action)
     {
+        _onDied = action;
+    }
+    
+    public virtual bool HandleWeaponCollision(Entity target)
+    {
+        if (target == this)
+        {
+            return false;
+        }
+
         if (!IsAttacking)
         {
-            return;
+            return false;
         }
 
         if (target.TakeDamage(AttackDamage))
         {
             OnAttackTargetDead(target);
         }
+
+        return true;
     }
 
-    public bool TakeDamage(float damage)
+    public virtual bool TakeDamage(float damage)
     {
         if (_hp > 0)
         {
@@ -61,11 +73,6 @@ public abstract class Entity : MonoBehaviour
         return false;
     }
 
-    public virtual void OnAttackAnimationFinished()
-    {
-        _isAttacking = false;
-    }
-
     protected virtual void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -81,12 +88,6 @@ public abstract class Entity : MonoBehaviour
 		return Physics.SphereCast(ray, colExtents.x, colExtents.x + 0.2f);
 	}
 
-    protected void Attack(string animationTrigger)
-    {
-        _animator.SetTrigger(animationTrigger);
-        _isAttacking = true;
-    }
-
     protected virtual void OnAttackTargetDead(Entity target)
     {
 
@@ -94,6 +95,7 @@ public abstract class Entity : MonoBehaviour
 
     protected virtual void Die()
     {
+        _onDied?.Invoke(this);
         //_ragdoll.SetEnabled(true);
     }
 }

@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField]
     private Entity _owner;
+
     public Entity Owner
     {
         get => _owner;
@@ -18,9 +20,14 @@ public class Weapon : MonoBehaviour
         }
 
         Entity target = other.GetComponent<Entity>();
-        if (target != null)
+        if (target != null && _owner != target)
         {
-            _owner.HandleWeaponCollision(target);
+            OnCollisionWithEntity(target);
         }
+    }
+
+    protected virtual bool OnCollisionWithEntity(Entity target)
+    {
+        return _owner.HandleWeaponCollision(target);
     }
 }

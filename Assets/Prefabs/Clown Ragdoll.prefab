@@ -994,8 +994,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df35bd6aaaf8e4d5da9ff4093ea434ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _owner: {fileID: 0}
+  _hitsBeforeDestruction: 5
+  _remainingHitsBeforeDestruction: 0
   hips: {fileID: 5382217693552110996}
   grabbingPoint: {fileID: 9211025639307906207}
+  _destructionEffectPrefab: {fileID: 104829970813648393, guid: d3015b7eea383f64d8b81f965cc466e7,
+    type: 3}
 --- !u!4 &5382217693552110996 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8914113513233755437, guid: e95d81a83addb974c8727d033c7c1e26,

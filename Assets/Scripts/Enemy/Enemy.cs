@@ -16,6 +16,9 @@ public class Enemy : Entity
     [SerializeField]
     private float _attackCoolDown = 2f;
 
+    [SerializeField]
+    private Weapon _hammer;
+
     private NavMeshAgent _agent;
 
     private GameObject _player;
@@ -25,17 +28,21 @@ public class Enemy : Entity
 
     private float _attackCoolDownTimeRemaining;
 
-    private Action<Enemy> _onEnemyDied;
-
     private bool _isAttacking;
 
     protected override float AttackDamage => _attack;
 
     protected override bool IsAttacking => _isAttacking;
 
-    public void SetOnEnemyDiedAction(Action<Enemy> action)
+    public override bool HandleWeaponCollision(Entity target)
     {
-        _onEnemyDied = action;
+        if (target is Player)
+        {
+            base.HandleWeaponCollision(target);
+            return true;
+        }
+
+        return false;
     }
 
     protected override void Awake()
@@ -44,6 +51,7 @@ public class Enemy : Entity
         _agent = GetComponent<NavMeshAgent>();
         _agent.updatePosition = false;
         _agent.updateRotation = false;
+        Animator.SetBool("Interrupt to Take Hit", true);
     }  
 
     protected void Update()
@@ -59,6 +67,8 @@ public class Enemy : Entity
             {
                 _player = GameObject.FindGameObjectWithTag("Player");
             }
+
+            _attackCoolDownTimeRemaining -= Time.deltaTime;
 float speed = 0;
             // if (_player == null)
             // {
@@ -107,19 +117,13 @@ float speed = 0;
 
                         if (_agent.velocity.magnitude > 0.1)
                         {
-                        Animator.SetFloat(GenericBehaviour.SpeedParameterHash, _agent.velocity.magnitude);
-   _agent.nextPosition = Animator.rootPosition;
+                            Animator.SetFloat(GenericBehaviour.SpeedParameterHash, _agent.velocity.magnitude);
+                            _agent.nextPosition = Animator.rootPosition;
                         }
                         else
                         {
                             Animator.SetFloat(GenericBehaviour.SpeedParameterHash, 0, speedDampTime, Time.deltaTime);
                             _agent.SetDestination(transform.position);
-
-                            if (_attackCoolDownTimeRemaining < 0)
-                            {
-                                Attack();
-                            }
-                            
 
                         }
                 //         if (shouldMove)
@@ -137,8 +141,7 @@ float speed = 0;
                     }
                     else
                     {
-		    Animator.SetFloat(GenericBehaviour.SpeedParameterHash, 0, speedDampTime, Time.deltaTime);
-                    _agent.SetDestination(transform.position);
+                        OnPlayerInRange();
 //transform.position = oldPosition;
                     }
                 // }
@@ -159,7 +162,7 @@ float speed = 0;
 		    Animator.SetFloat(GenericBehaviour.SpeedParameterHash, 0, speedDampTime, Time.deltaTime);
             _agent.destination = transform.position;
         }
-    oldPosition=transform.position;
+        oldPosition=transform.position;
     }
 
     // //         if (velocity.magnitude > 0.5f && _agent.remainingDistance > _range)
@@ -187,13 +190,25 @@ float speed = 0;
     public void OnAttackFinished()
     {
         _isAttacking = false;
+        //Debug.Log("On Attack Finished for "+name);
     }
 
     protected override void Die()
     {
         base.Die();
         _agent.enabled = false;
-        _onEnemyDied?.Invoke(this);
+        Destroy(_hammer.gameObject);
+    }
+
+    private void OnPlayerInRange()
+    {
+        Animator.SetFloat(GenericBehaviour.SpeedParameterHash, 0, speedDampTime, Time.deltaTime);
+        _agent.SetDestination(transform.position);
+
+        if (_attackCoolDownTimeRemaining < 0)
+        {
+            Attack();
+        }
     }
 
     private void Attack()

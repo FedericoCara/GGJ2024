@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6428753346404995992}
-  - component: {fileID: 5040401434077149658}
+  - component: {fileID: 258789538862756086}
+  - component: {fileID: 8892064336651492414}
   m_Layer: 0
   m_Name: Martillo
   m_TagString: Untagged
@@ -33,7 +34,20 @@ Transform:
   - {fileID: 6071165486493728191}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &5040401434077149658
+--- !u!114 &258789538862756086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947623722486127871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a566fe1fc5358b1c7b3a1efb79a06e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _owner: {fileID: 0}
+--- !u!136 &8892064336651492414
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,14 +62,14 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.3
-  m_Height: 1.23
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.41, z: 0}
+  m_Radius: 0.25
+  m_Height: 0.88
+  m_Direction: 0
+  m_Center: {x: -0.04, y: 1.28, z: 0}
 --- !u!1 &2146727807019328826
 GameObject:
   m_ObjectHideFlags: 0
