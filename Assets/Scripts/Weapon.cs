@@ -12,6 +12,11 @@ public abstract class Weapon : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        if (_owner == null)
+        {
+            return;
+        }
+
         Entity target = other.GetComponent<Entity>();
         if (target != null)
         {

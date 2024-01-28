@@ -22,7 +22,7 @@ public class GraspableRagdoll : Weapon
 
     public void SetGrabbedBy(Transform handTransform)
     {
-        EnablePhysics(false);
+        EnablePhysics(false);        
         transform.SetParent(handTransform);
         transform.position = handTransform.position - grabbingPoint.position + transform.position;
         SetLayer(_grabbedLayer);

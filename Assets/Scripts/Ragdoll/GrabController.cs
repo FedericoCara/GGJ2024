@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GrabController : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class GrabController : MonoBehaviour
     
     [SerializeField] private Player _player;
     [SerializeField] private Transform handTransform;
-    private GraspableRagdoll _graspableAtHand;
+    private List<GraspableRagdoll> _graspableAtHand = new();
     private GraspableRagdoll _grabbedRagdoll;
 
     private void Update()
@@ -36,33 +37,59 @@ public class GrabController : MonoBehaviour
 
     private void Grab()
     {
-        _grabbedRagdoll = _graspableAtHand;
+        var target = GetClosestGrabbableRagdoll();
+        if (target == null)
+        {
+            return;
+        }
+
+        _grabbedRagdoll = target;
         _grabbedRagdoll.SetGrabbedBy(handTransform);
         _grabbedRagdoll.Owner = _player;
-    }
-
-    private void HandleWeaponCollision(Collider collider)
-    {
-        var impactReceiver = collider.GetComponentInParent<FinishingBlowReceiver>();
-        if(impactReceiver!=null)
-            OnImpactOnEnemy?.Invoke(impactReceiver);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         var graspableRagdoll = other.GetComponentInParent<GraspableRagdoll>();
-        if (graspableRagdoll != null && _grabbedRagdoll!=graspableRagdoll)
+        if (graspableRagdoll != null && _grabbedRagdoll != graspableRagdoll)
         {
-            _graspableAtHand = graspableRagdoll;
+            _graspableAtHand.Add(graspableRagdoll);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         var graspableRagdoll = other.GetComponentInParent<GraspableRagdoll>();
-        if (graspableRagdoll == _graspableAtHand)
+        _graspableAtHand.Remove(graspableRagdoll);
+    }
+
+    private GraspableRagdoll GetClosestGrabbableRagdoll()
+    {
+        float minDistance = float.MaxValue;
+        GraspableRagdoll closestGrabbableRagdoll = null;
+        for (int i = 0; i < _graspableAtHand.Count; i++)
         {
-            _graspableAtHand = null;
+            // if (_graspableAtHand[i] == null)
+            // {
+            //     _graspableAtHand.RemoveAt(i--);
+            //     continue;
+            // }
+            
+            if (_grabbedRagdoll != _graspableAtHand[i])
+            {
+                var enemy = _graspableAtHand[i].GetComponent<Enemy>();
+                if (enemy == null || enemy.IsDead)
+                {
+                    float distance = Vector3.Distance(_graspableAtHand[i].transform.position, handTransform.position);
+                    if (distance < minDistance)
+                    {
+                        minDistance = distance;
+                        closestGrabbableRagdoll = _graspableAtHand[i];
+                    }
+                }
+            }
         }
+
+        return closestGrabbableRagdoll;
     }
 }

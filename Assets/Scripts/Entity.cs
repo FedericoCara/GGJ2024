@@ -20,13 +20,13 @@ public abstract class Entity : MonoBehaviour
 
     private bool _isAttacking;
 
+    public bool IsDead => _hp <= 0;
+
     protected abstract float AttackDamage { get; }
 
     protected abstract bool IsAttacking { get; }
 
     protected Animator Animator => _animator;
-
-    protected bool IsDead => _hp <= 0;
     
     public void HandleWeaponCollision(Entity target)
     {
