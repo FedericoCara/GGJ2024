@@ -429,10 +429,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: -8159361685131513984}
-    - targetCorrespondingSourceObject: {fileID: 3156841553124990704, guid: e9469df74bb924c449f6feebf7687f34,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1048260037726606111}
     - targetCorrespondingSourceObject: {fileID: 853452729797205242, guid: e9469df74bb924c449f6feebf7687f34,
         type: 3}
       insertIndex: -1
@@ -441,12 +437,6 @@ PrefabInstance:
 --- !u!54 &880062836625621920 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 7414984857316569920, guid: e9469df74bb924c449f6feebf7687f34,
-    type: 3}
-  m_PrefabInstance: {fileID: 7697158696930308320}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &2068678209698688720 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8531127017804439088, guid: e9469df74bb924c449f6feebf7687f34,
     type: 3}
   m_PrefabInstance: {fileID: 7697158696930308320}
   m_PrefabAsset: {fileID: 0}
@@ -535,33 +525,6 @@ MonoBehaviour:
       Data3: -1137762174
       Data4: 114358891
     Path: event:/SFXs/Muerte_malo
---- !u!114 &1048260037726606111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4692354605489843728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b1912398b744dceacfb5ba69cb442c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 2068678209698688720}
-  walkAudioStep:
-    Guid:
-      Data1: -2098307221
-      Data2: 1220754863
-      Data3: -1608522847
-      Data4: 85110755
-    Path: event:/SFXs/Pasos_malos
-  runAudioStep:
-    Guid:
-      Data1: -2098307221
-      Data2: 1220754863
-      Data3: -1608522847
-      Data4: 85110755
-    Path: event:/SFXs/Pasos_malos
 --- !u!137 &6079812255203500005 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 4507566687237598981, guid: e9469df74bb924c449f6feebf7687f34,
