@@ -234,6 +234,7 @@ MonoBehaviour:
   _enemySpawnInterval: 3
   _enemyMaxCount: 5
   _killsText: {fileID: 703611072}
+  _healthBar: {fileID: 2110157131336660841}
   _gameOverScreen: {fileID: 0}
 --- !u!4 &624140616
 Transform:
@@ -611,6 +612,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f284ae84f61a4df781b158d1a12bb4a, type: 3}
+--- !u!114 &2110157131336660841 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9061944201264286195, guid: 7f284ae84f61a4df781b158d1a12bb4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2110157131336660840}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
