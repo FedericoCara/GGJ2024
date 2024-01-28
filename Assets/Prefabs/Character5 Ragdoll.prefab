@@ -61,7 +61,7 @@ PrefabInstance:
     - target: {fileID: 5764209389455684045, guid: 474d532df8faa43d0a23af87198a0051,
         type: 3}
       propertyPath: m_Name
-      value: Character5 Variant
+      value: Character5 Ragdoll
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

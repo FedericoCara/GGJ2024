@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public abstract class Weapon : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
     private Entity _owner;
     public Entity Owner
@@ -12,6 +12,11 @@ public abstract class Weapon : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        if (_owner == null)
+        {
+            return;
+        }
+
         Entity target = other.GetComponent<Entity>();
         if (target != null)
         {

@@ -27,9 +27,11 @@ public class Enemy : Entity
 
     private Action<Enemy> _onEnemyDied;
 
+    private bool _isAttacking;
+
     protected override float AttackDamage => _attack;
 
-    protected override bool IsAttacking => false;
+    protected override bool IsAttacking => _isAttacking;
 
     public void SetOnEnemyDiedAction(Action<Enemy> action)
     {
@@ -115,8 +117,7 @@ float speed = 0;
 
                             if (_attackCoolDownTimeRemaining < 0)
                             {
-                                Attack("Basic Attack");
-                                _attackCoolDownTimeRemaining = _attackCoolDown;
+                                Attack();
                             }
                             
 
@@ -183,11 +184,22 @@ float speed = 0;
     //     transform.position = position;
     //     _agent.nextPosition = transform.position;
     // }
+    public void OnAttackFinished()
+    {
+        _isAttacking = false;
+    }
 
     protected override void Die()
     {
         base.Die();
         _agent.enabled = false;
         _onEnemyDied?.Invoke(this);
+    }
+
+    private void Attack()
+    {
+        Animator.SetTrigger(AttackBehavior.AttackNormal);
+        _isAttacking = true;
+        _attackCoolDownTimeRemaining = _attackCoolDown;
     }
 }

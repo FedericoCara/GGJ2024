@@ -1,5 +1,94 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8382427005597710244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638420483800000000
+  FileSizes:
+  - Name: 
+    Value: 1202
+  Exists: 1
+--- !u!114 &-5134673095188591138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFXs/Normal_hit
+  m_EditorClassIdentifier: 
+  Path: event:/SFXs/Normal_hit
+  Guid:
+    Data1: 702903957
+    Data2: 1078674432
+    Data3: 1022884533
+    Data4: -1701863517
+  Banks:
+  - {fileID: -4717538484458709843}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 10209
+--- !u!114 &-4751033420142622786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Music/Vida
+  m_EditorClassIdentifier: 
+  Name: Vida
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 100
+  ID:
+    data1: 1863223521
+    data2: 351531232
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-4717538484458709843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638420483800000000
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-4420039652175594476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19,7 +108,7 @@ MonoBehaviour:
     Data3: -1608522847
     Data4: 85110755
   Banks:
-  - {fileID: 8001854259342317155}
+  - {fileID: -4717538484458709843}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -46,7 +135,7 @@ MonoBehaviour:
     Data3: -1137762174
     Data4: 114358891
   Banks:
-  - {fileID: 8001854259342317155}
+  - {fileID: -4717538484458709843}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -73,7 +162,7 @@ MonoBehaviour:
     Data3: -1830502750
     Data4: -2074907667
   Banks:
-  - {fileID: 8001854259342317155}
+  - {fileID: -4717538484458709843}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -81,6 +170,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-2626230230613209452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Music/Nivel
+  m_EditorClassIdentifier: 
+  Name: Nivel
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 461880087
+    data2: 336898242
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,21 +207,24 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 5493094948485756943}
-  - {fileID: 8001854259342317155}
+  - {fileID: -8382427005597710244}
+  - {fileID: -4717538484458709843}
   EditorEvents:
   - {fileID: -4420039652175594476}
   - {fileID: 2259742967878357057}
-  - {fileID: 6849973439040255042}
   - {fileID: -2693505776031582478}
   - {fileID: -4337479286166548764}
   - {fileID: 3340158930589946406}
-  EditorParameters: []
+  - {fileID: 5964485216047435555}
+  - {fileID: -5134673095188591138}
+  - {fileID: 5298819615293795303}
+  EditorParameters:
+  - {fileID: 2845603765422611240}
   MasterBanks:
-  - {fileID: 8001854259342317155}
+  - {fileID: -4717538484458709843}
   StringsBanks:
-  - {fileID: 5493094948485756943}
-  cacheTime: 638419678020000000
+  - {fileID: -8382427005597710244}
+  cacheTime: 638420483800000000
   cacheVersion: 131616
 --- !u!114 &2259742967878357057
 MonoBehaviour:
@@ -129,14 +245,40 @@ MonoBehaviour:
     Data3: -1008689513
     Data4: 1319148693
   Banks:
-  - {fileID: 8001854259342317155}
+  - {fileID: -4717538484458709843}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
-  Parameters: []
+  Parameters:
+  - {fileID: -2626230230613209452}
+  - {fileID: -4751033420142622786}
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &2845603765422611240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Vida
+  m_EditorClassIdentifier: 
+  Name: Vida
+  StudioPath: parameter:/Vida
+  Min: 0
+  Max: 100
+  Default: 100
+  ID:
+    data1: 1863223521
+    data2: 351531232
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
 --- !u!114 &3340158930589946406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +298,7 @@ MonoBehaviour:
     Data3: 1698320515
     Data4: 881177810
   Banks:
-  - {fileID: 8001854259342317155}
+  - {fileID: -4717538484458709843}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -164,27 +306,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &5493094948485756943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Build/Desktop/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: "../../Documentos/Proyecto FMOD de Payas\xEDn/Build/Desktop/Master.strings.bank"
-  Name: Build/Desktop/Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638419678020000000
-  FileSizes:
-  - Name: 
-    Value: 1016
-  Exists: 1
---- !u!114 &6849973439040255042
+--- !u!114 &5298819615293795303
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -194,24 +316,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFXs/Golpes
+  m_Name: event:/SFXs/Horizontal_hit
   m_EditorClassIdentifier: 
-  Path: event:/SFXs/Golpes
+  Path: event:/SFXs/Horizontal_hit
   Guid:
-    Data1: 702903957
-    Data2: 1078674432
-    Data3: 1022884533
-    Data4: -1701863517
+    Data1: 233580540
+    Data2: 1136514750
+    Data3: 2036242107
+    Data4: -423186751
   Banks:
-  - {fileID: 8001854259342317155}
-  IsStream: 0
+  - {fileID: -4717538484458709843}
+  IsStream: 1
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
---- !u!114 &8001854259342317155
+  Length: 10209
+--- !u!114 &5964485216047435555
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -220,14 +342,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Build/Desktop/Master.bank
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFXs/Backhand_hit
   m_EditorClassIdentifier: 
-  Path: "../../Documentos/Proyecto FMOD de Payas\xEDn/Build/Desktop/Master.bank"
-  Name: Build/Desktop/Master
-  StudioPath: bank:/Master
-  lastModified: 638419678020000000
-  FileSizes:
-  - Name: 
-    Value: 183648
-  Exists: 1
+  Path: event:/SFXs/Backhand_hit
+  Guid:
+    Data1: 2043771690
+    Data2: 1240524308
+    Data3: 1889874324
+    Data4: 366676696
+  Banks:
+  - {fileID: -4717538484458709843}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 10209

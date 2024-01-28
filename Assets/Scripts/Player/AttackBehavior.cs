@@ -1,25 +1,32 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 public class AttackBehavior : MonoBehaviour
 {
+    public static readonly int AttackNormal = Animator.StringToHash("AttackNormal");
+    public static readonly int AttackBackhand = Animator.StringToHash("AttackBackhand");
+    public static readonly int AttackHorizontal = Animator.StringToHash("AttackHorizontal");
     [SerializeField] private GrabController grabController;
 
     [SerializeField]
     private float _normalAttackDamage = 40;
 
+    [SerializeField] private EventReference normalAttackAudio;
+    
     [SerializeField]
     private float _horizontalAttackDamage = 60;
+    
+    [SerializeField] private EventReference horizontalAttackAudio;
 
     [SerializeField]
     private float _backhandAttackDamage = 100;
     
+    [SerializeField] private EventReference backhandAttackAudio;
+    
     private Animator _animator;
-    private static readonly int AttackNormal = Animator.StringToHash("AttackNormal");
-    private static readonly int AttackBackhand = Animator.StringToHash("AttackBackhand");
-    private static readonly int AttackHorizontal = Animator.StringToHash("AttackHorizontal");
     private bool _waitingToResetTriggers;
     private bool _doingNormalAttack;
     private bool _doingHorizontalAttack;
@@ -114,6 +121,7 @@ public class AttackBehavior : MonoBehaviour
         _animator.SetTrigger(AttackNormal);
         ResetTriggersAfterSomeMilliseconds();
         _doingNormalAttack = true;
+        RuntimeManager.PlayOneShot(normalAttackAudio);
     }
 
     private void PerformHorizontalAttack()
@@ -121,6 +129,7 @@ public class AttackBehavior : MonoBehaviour
         _animator.SetTrigger(AttackHorizontal);
         ResetTriggersAfterSomeMilliseconds();
         _doingHorizontalAttack = true;
+        RuntimeManager.PlayOneShot(horizontalAttackAudio);
     }
 
     private void PerformBackhandAttack()
@@ -128,6 +137,7 @@ public class AttackBehavior : MonoBehaviour
         _animator.SetTrigger(AttackBackhand);
         ResetTriggersAfterSomeMilliseconds();
         _doingBackhandAttack = true;
+        RuntimeManager.PlayOneShot(backhandAttackAudio);
     }
 
     private void ResetTriggersAfterSomeMilliseconds()
