@@ -605,6 +605,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5510020132293207705}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e95d81a83addb974c8727d033c7c1e26,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6634864610090899116}
     - targetCorrespondingSourceObject: {fileID: -5992565114679689381, guid: e95d81a83addb974c8727d033c7c1e26,
         type: 3}
       insertIndex: -1
@@ -1274,6 +1278,33 @@ MonoBehaviour:
   normalTransform: {fileID: 2343149465059542090}
   ragdollTransform: {fileID: 6682066936407690892}
   normalCam: {fileID: 5341211714734992516}
+--- !u!114 &6634864610090899116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3156841553124990704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b1912398b744dceacfb5ba69cb442c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 8531127017804439088}
+  walkAudioStep:
+    Guid:
+      Data1: 1384013990
+      Data2: 1100773393
+      Data3: -1830502750
+      Data4: -2074907667
+    Path: event:/SFXs/Pasos_personaje
+  runAudioStep:
+    Guid:
+      Data1: 1384013990
+      Data2: 1100773393
+      Data3: -1830502750
+      Data4: -2074907667
+    Path: event:/SFXs/Pasos_personaje
 --- !u!1 &3503412362131430856 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1698047825267818089, guid: e95d81a83addb974c8727d033c7c1e26,
