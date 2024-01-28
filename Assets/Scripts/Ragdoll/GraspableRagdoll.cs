@@ -8,6 +8,9 @@ public class GraspableRagdoll : MonoBehaviour
     [SerializeField] private Transform hips;
     [SerializeField] private Transform grabbingPoint;
 
+    public event Action<Collider> OnCollidingWithSomething;
+
+    private BoxCollider _collider;
     private List<Rigidbody> _rigidbodies = new();
     private List<Collider> _colliders = new();
     private int _defaultLayer;
@@ -24,7 +27,7 @@ public class GraspableRagdoll : MonoBehaviour
         EnablePhysics(false);
         transform.SetParent(handTransform);
         transform.position = handTransform.position - grabbingPoint.position + transform.position;
-        //SetLayer(_grabbedLayer);
+        SetLayer(_grabbedLayer);
     }
 
     public void LetGo(Vector3 grabberForward, Vector3 transformPosition)
@@ -36,7 +39,7 @@ public class GraspableRagdoll : MonoBehaviour
         transform.position = new Vector3(position.x,
              Mathf.Max(transformPosition.y+1f,position.y),
                                         position.z) + grabberForward;
-        //SetLayer(_defaultLayer);
+        SetLayer(_defaultLayer);
     }
 
     private void EnablePhysics(bool enable = true)
@@ -48,7 +51,7 @@ public class GraspableRagdoll : MonoBehaviour
 
         foreach (var col in GetColliders())
         {
-            col.enabled = enable;
+            col.isTrigger = !enable;
         }
     }
 
@@ -68,9 +71,14 @@ public class GraspableRagdoll : MonoBehaviour
 
     private void SetLayer(int layer)
     {
-        foreach (Transform child in transform)
+        foreach (Transform child in transform.GetComponentsInChildren<Transform>())
         {
             child.gameObject.layer = layer;
         }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        OnCollidingWithSomething?.Invoke(other);
     }
 }

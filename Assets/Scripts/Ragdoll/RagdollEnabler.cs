@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RagdollEnabler : MonoBehaviour
 {
+    [SerializeField] private bool allowInput;
     [SerializeField] private Animator animator;
     [SerializeField] private List<MonoBehaviour> behaviours;
     [SerializeField] private Collider[] colliders;
@@ -17,12 +18,13 @@ public class RagdollEnabler : MonoBehaviour
         SetEnabled(false);
     }
  
-    void SetEnabled(bool enabled)
+    public void SetEnabled(bool enabled)
     {
         normalRigidBody.isKinematic = enabled;
         foreach (var collider in colliders)
         {
             collider.enabled = enabled;
+            collider.GetComponent<Rigidbody>().isKinematic = !enabled;
         }
         foreach (var monoBehaviour in behaviours)
         {
@@ -36,12 +38,16 @@ public class RagdollEnabler : MonoBehaviour
 
     private void SwitchCam(bool enabled)
     {
+        if(normalCam==null)
+            return;
         normalCam.player = enabled ? ragdollTransform : normalTransform;
         normalCam.ResetTargetOffsets();
     }
 
     void Update()
     {
+        if(!allowInput)
+            return;
         if (Input.GetKeyDown(KeyCode.R))
         {
             SetEnabled(true);

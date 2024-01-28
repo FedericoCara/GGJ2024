@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GrabController : MonoBehaviour
 {
+    public event Action<ImpactReceiver> OnImpactOnEnemy;
+    
     [SerializeField] private Transform handTransform;
     private GraspableRagdoll _graspableAtHand;
     private GraspableRagdoll _grabbedRagdoll;
@@ -27,6 +29,7 @@ public class GrabController : MonoBehaviour
     private void LetGo()
     {
         _grabbedRagdoll.LetGo(transform.forward, transform.position);
+        _grabbedRagdoll.OnCollidingWithSomething -= HandleWeaponCollision;
         _grabbedRagdoll = null;
     }
 
@@ -34,6 +37,14 @@ public class GrabController : MonoBehaviour
     {
         _grabbedRagdoll = _graspableAtHand;
         _grabbedRagdoll.SetGrabbedBy(handTransform);
+        _grabbedRagdoll.OnCollidingWithSomething += HandleWeaponCollision;
+    }
+
+    private void HandleWeaponCollision(Collider collider)
+    {
+        var impactReceiver = collider.GetComponentInParent<ImpactReceiver>();
+        if(impactReceiver!=null)
+            OnImpactOnEnemy?.Invoke(impactReceiver);
     }
 
     private void OnTriggerEnter(Collider other)

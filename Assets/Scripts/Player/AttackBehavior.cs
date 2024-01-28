@@ -5,35 +5,86 @@ using UnityEngine;
 
 public class AttackBehavior : MonoBehaviour
 {
+    [SerializeField] private GrabController grabController;
+    
     private Animator _animator;
     private static readonly int AttackNormal = Animator.StringToHash("AttackNormal");
     private static readonly int AttackBackhand = Animator.StringToHash("AttackBackhand");
     private static readonly int AttackHorizontal = Animator.StringToHash("AttackHorizontal");
     private bool _waitingToResetTriggers;
+    private bool _doingNormalAttack;
+    private bool _doingHorizontalAttack;
+    private bool _doingBackhandAttack;
 
     private void Awake()
     {
         _animator = GetComponentInChildren<Animator>();
+        grabController.OnImpactOnEnemy += HandleImpactOnEnemy;
     }
-    
+
     void Update()
     {
         if(_waitingToResetTriggers)
             return;
         
+        if(WasAttacking() && !IsAttackState())
+            OnAttackFinished();
+
+
         if (Input.GetButtonDown("Fire1"))
+            PerformNormalAttack();
+        else if (Input.GetButtonDown("Fire2"))
+            PerformBackhandAttack();
+        else if (Input.GetButtonDown("Fire3")) PerformHorizontalAttack();
+    }
+
+    private bool WasAttacking() => 
+        _doingNormalAttack || _doingBackhandAttack || _doingHorizontalAttack;
+
+    private bool IsAttackState()
+    {
+        if (_animator.IsInTransition(0))
         {
-            _animator.SetTrigger(AttackNormal);
-            ResetTriggersAfterSomeMilliseconds();
-        }else if (Input.GetButtonDown("Fire2"))
-        {
-            _animator.SetTrigger(AttackBackhand);
-            ResetTriggersAfterSomeMilliseconds();
-        }else if (Input.GetButtonDown("Fire3"))
-        {
-            _animator.SetTrigger(AttackHorizontal);
-            ResetTriggersAfterSomeMilliseconds();
+            var nextState = _animator.GetNextAnimatorStateInfo(0);
+            if (nextState.IsName("Attack Normal") ||
+                nextState.IsName("Attack Backhand") ||
+                nextState.IsName("Attack Horizontal"))
+                return true;
         }
+
+        var currentState = _animator.GetCurrentAnimatorStateInfo(0);
+        return currentState.IsName("Attack Normal") ||
+               currentState.IsName("Attack Backhand") ||
+               currentState.IsName("Attack Horizontal");
+    }
+
+
+    public void OnAttackFinished()
+    {
+        _doingNormalAttack = false;
+        _doingBackhandAttack = false;
+        _doingHorizontalAttack = false;
+    }
+
+    private void PerformNormalAttack()
+    {
+        _animator.SetTrigger(AttackNormal);
+        ResetTriggersAfterSomeMilliseconds();
+        _doingNormalAttack = true;
+    }
+
+    private void PerformHorizontalAttack()
+    {
+        _animator.SetTrigger(AttackHorizontal);
+        ResetTriggersAfterSomeMilliseconds();
+        _doingHorizontalAttack = true;
+    }
+
+    private void PerformBackhandAttack()
+    {
+        _animator.SetTrigger(AttackBackhand);
+        ResetTriggersAfterSomeMilliseconds();
+        _doingBackhandAttack = true;
     }
 
     private void ResetTriggersAfterSomeMilliseconds()
@@ -44,7 +95,7 @@ public class AttackBehavior : MonoBehaviour
     private IEnumerator ResetTriggersAfterSomeMillisecondsCoroutine()
     {
         _waitingToResetTriggers = true;
-        yield return new WaitForSeconds(0.015f);
+        yield return new WaitForSeconds(0.02f);
         
         _animator.ResetTrigger(AttackNormal);
         _animator.ResetTrigger(AttackBackhand);
@@ -53,10 +104,13 @@ public class AttackBehavior : MonoBehaviour
         _waitingToResetTriggers = false;
     }
 
-    private void TurnOffAllTriggers()
+    private void HandleImpactOnEnemy(ImpactReceiver receiver)
     {
-        _animator.SetBool(AttackNormal, false);
-        _animator.SetBool(AttackBackhand, false);
-        _animator.SetBool(AttackHorizontal, false);
+        if(_doingNormalAttack)
+            receiver.KilledByNormalHit(transform);
+        else if(_doingBackhandAttack)
+            receiver.KilledByBackhandHit(transform);
+        else if(_doingHorizontalAttack)
+            receiver.KilledByHorizontalHit(transform);
     }
 }
