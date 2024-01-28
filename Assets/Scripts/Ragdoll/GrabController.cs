@@ -15,13 +15,21 @@ public class GrabController : MonoBehaviour
 
     public void LetGo()
     {
-        _grabbedRagdoll.LetGo(transform.forward, transform.position);
-        _grabbedRagdoll.Owner = null;
-        _grabbedRagdoll = null;
+        if (_grabbedRagdoll != null)
+        {
+            _grabbedRagdoll.LetGo(transform.forward, transform.position);
+            _grabbedRagdoll.Owner = null;
+            _grabbedRagdoll = null;
+        }
     }
 
     private void Update()
     {
+        if (_player.IsDead)
+        {
+            return;
+        }
+
         if (Input.GetButtonDown("Grab"))
         {
             if (_grabbedRagdoll!=null)

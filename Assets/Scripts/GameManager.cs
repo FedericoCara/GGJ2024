@@ -8,10 +8,16 @@ using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
+    private GraspableRagdoll _initialRagdoll;
+
+    [SerializeField]
     private Player _playerPrefab;
 
     [SerializeField]
     private Enemy _enemyPrefab;
+
+    [SerializeField]
+    private Color[] _enemyColors;
 
     [SerializeField]
     private Transform[] _enemySpawnPoints;
@@ -21,6 +27,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private int _enemyMaxCount = 5;
+
+    [SerializeField]
+    private GameObject _startButton;
 
     [SerializeField]
     private Text _killsText;
@@ -47,9 +56,17 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        if (_startButton != null)
+        {
+            _startButton.SetActive(false);
+        }
+
         _hasGameStarted = true;
         _isGameOver = false;
         _timeRemainingForNextSpawn = 0;
+        _kills = 0;
+        _liveEnemies = 0;
+        _killsText.text = "0";
 
         if (_player == null)
         {
@@ -88,7 +105,9 @@ public class GameManager : MonoBehaviour
         if (_timeRemainingForNextSpawn < 0 && _liveEnemies < _enemyMaxCount)
         {
             var enemy = Instantiate(_enemyPrefab, _enemySpawnPoints[Random.Range(0, _enemySpawnPoints.Length)].position, Quaternion.identity);
+            enemy.SetColor(_enemyColors[Random.Range(0, _enemyColors.Length)]);
             enemy.SetOnEnemyDiedAction(OnEnemyDied);
+            _spawnedEnemies.Add(enemy);
             _timeRemainingForNextSpawn = _enemySpawnInterval;
             _liveEnemies++;
         }
@@ -104,10 +123,22 @@ public class GameManager : MonoBehaviour
     private void OnPlayerDied(Entity player)
     {
         _isGameOver = true;
+        if (_startButton != null)
+        {
+            _startButton.SetActive(true);
+        }
+
+        Destroy(_initialRagdoll.gameObject);
+
         player.gameObject.tag = "Untagged";
+        _initialRagdoll = _player.GetComponent<GraspableRagdoll>();
         _player = null;
 
-        _spawnedEnemies.ForEach(enemy => Destroy(enemy));
+        _spawnedEnemies.ForEach(enemy => 
+        {
+            if (enemy != null) Destroy(enemy.gameObject);
+        });
+
         _spawnedEnemies.Clear();
 
         foreach (var go in _gameOverObjects)

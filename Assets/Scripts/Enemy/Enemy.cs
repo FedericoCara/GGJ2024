@@ -19,6 +19,9 @@ public class Enemy : Entity
     [SerializeField]
     private Weapon _hammer;
 
+    [SerializeField]
+    private MeshRenderer _renderer;
+
     private NavMeshAgent _agent;
 
     private GameObject _player;
@@ -29,6 +32,8 @@ public class Enemy : Entity
     private float _attackCoolDownTimeRemaining;
 
     private bool _isAttacking;
+
+    private Color _color;
 
     protected override float AttackDamage => _attack;
 
@@ -43,6 +48,12 @@ public class Enemy : Entity
         }
 
         return false;
+    }
+
+    public void SetColor(Color color)
+    {
+        _color = color;
+        _renderer.material.SetColor("Color", color);
     }
 
     protected override void Awake()
