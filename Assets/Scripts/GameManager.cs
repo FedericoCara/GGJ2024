@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     private Text _killsText;
 
     [SerializeField]
+    private Image _healthBar;
+
+    [SerializeField]
     private GameObject _gameOverScreen;
 
     private float _timeRemainingForNextSpawn;
@@ -34,6 +37,8 @@ public class GameManager : MonoBehaviour
 
     private bool _isGameOver;
 
+    private Player _player;
+
     public void StartGame()
     {
         _hasGameStarted = true;
@@ -42,6 +47,16 @@ public class GameManager : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(0);
+    }
+
+    protected void Awake()
+    {
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        _player.SetOnEnemyDiedAction(OnPlayerDied);
+        if(_healthBar != null)
+        {
+            _player.SetOnTakeDamageAction(health => _healthBar.fillAmount = health);
+        }
     }
 
     protected void Update()
@@ -66,16 +81,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void OnEnemyDied(Enemy enemy)
+    private void OnEnemyDied(Entity enemy)
     {
         _kills++;
         _liveEnemies--;
         _killsText.text = _kills.ToString();
     }
 
-    private void OnPlayerDied()
+    private void OnPlayerDied(Entity player)
     {
         _isGameOver = true;
-        _gameOverScreen.SetActive(true);
+        if (_gameOverScreen != null)
+        {
+            _gameOverScreen.SetActive(true);
+        }
     }
 }

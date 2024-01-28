@@ -13,6 +13,13 @@ public class GrabController : MonoBehaviour
     private List<GraspableRagdoll> _graspableAtHand = new();
     private GraspableRagdoll _grabbedRagdoll;
 
+    public void LetGo()
+    {
+        _grabbedRagdoll.LetGo(transform.forward, transform.position);
+        _grabbedRagdoll.Owner = null;
+        _grabbedRagdoll = null;
+    }
+
     private void Update()
     {
         if (Input.GetButtonDown("Grab"))
@@ -26,13 +33,6 @@ public class GrabController : MonoBehaviour
                 Grab();
             }
         }
-    }
-
-    private void LetGo()
-    {
-        _grabbedRagdoll.LetGo(transform.forward, transform.position);
-        _grabbedRagdoll.Owner = null;
-        _grabbedRagdoll = null;
     }
 
     private void Grab()

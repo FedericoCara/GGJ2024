@@ -9,14 +9,16 @@ public abstract class Entity : MonoBehaviour
     private static readonly int TakeHitTriggerID = Animator.StringToHash("Take Hit");
 
     [SerializeField]
-    private float _hp = 100;
+    protected float _hp = 100;
 
     [SerializeField]
-    private float _maxHP = 100;
+    protected float _maxHP = 100;
 	
     private Vector3 colExtents;
 
     private Animator _animator;
+
+    private Action<Entity> _onDied;
 
     public bool IsDead => _hp <= 0;
 
@@ -25,6 +27,11 @@ public abstract class Entity : MonoBehaviour
     protected abstract bool IsAttacking { get; }
 
     protected Animator Animator => _animator;
+
+    public void SetOnEnemyDiedAction(Action<Entity> action)
+    {
+        _onDied = action;
+    }
     
     public virtual void HandleWeaponCollision(Entity target)
     {
@@ -44,7 +51,7 @@ public abstract class Entity : MonoBehaviour
         }
     }
 
-    public bool TakeDamage(float damage)
+    public virtual bool TakeDamage(float damage)
     {
         if (_hp > 0)
         {
@@ -86,6 +93,7 @@ public abstract class Entity : MonoBehaviour
 
     protected virtual void Die()
     {
+        _onDied?.Invoke(this);
         //_ragdoll.SetEnabled(true);
     }
 }

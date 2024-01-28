@@ -25,18 +25,11 @@ public class Enemy : Entity
 
     private float _attackCoolDownTimeRemaining;
 
-    private Action<Enemy> _onEnemyDied;
-
     private bool _isAttacking;
 
     protected override float AttackDamage => _attack;
 
     protected override bool IsAttacking => _isAttacking;
-
-    public void SetOnEnemyDiedAction(Action<Enemy> action)
-    {
-        _onEnemyDied = action;
-    }
 
     public override void HandleWeaponCollision(Entity target)
     {
@@ -196,7 +189,6 @@ float speed = 0;
     {
         base.Die();
         _agent.enabled = false;
-        _onEnemyDied?.Invoke(this);
     }
 
     private void OnPlayerInRange()
@@ -212,7 +204,6 @@ float speed = 0;
 
     private void Attack()
     {
-        Debug.Log("ENEMY ATTACKING");
         Animator.SetTrigger(AttackBehavior.AttackNormal);
         _isAttacking = true;
         _attackCoolDownTimeRemaining = _attackCoolDown;

@@ -1173,6 +1173,7 @@ MonoBehaviour:
   speedDampTime: 0.1
   _hp: 100
   _maxHP: 100
+  _grabController: {fileID: 114714928762996528}
 --- !u!114 &6257900706002257452
 MonoBehaviour:
   m_ObjectHideFlags: 0
