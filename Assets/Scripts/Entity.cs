@@ -26,13 +26,16 @@ public abstract class Entity : MonoBehaviour
 
     protected abstract bool IsAttacking { get; }
 
+    protected abstract bool HasAlreadyHitInThisAttack(Entity target);
+    
     protected Animator Animator => _animator;
+
 
     public void SetOnEnemyDiedAction(Action<Entity> action)
     {
         _onDied = action;
     }
-    
+
     public virtual bool HandleWeaponCollision(Entity target)
     {
         if (target == this)
@@ -40,7 +43,7 @@ public abstract class Entity : MonoBehaviour
             return false;
         }
 
-        if (!IsAttacking)
+        if (!IsAttacking || HasAlreadyHitInThisAttack(target))
         {
             return false;
         }

@@ -15,12 +15,12 @@ MonoBehaviour:
   Path: Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638420483800000000
+  lastModified: 638420609660000000
   FileSizes:
   - Name: 
-    Value: 1202
+    Value: 1150
   Exists: 1
---- !u!114 &-5134673095188591138
+--- !u!114 &-5579214210315036598
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30,47 +30,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFXs/Normal_hit
+  m_Name: event:/SFXs/Backhand_hit
   m_EditorClassIdentifier: 
-  Path: event:/SFXs/Normal_hit
+  Path: event:/SFXs/Backhand_hit
   Guid:
-    Data1: 702903957
-    Data2: 1078674432
-    Data3: 1022884533
-    Data4: -1701863517
+    Data1: 2043771690
+    Data2: 1240524308
+    Data3: 1889874324
+    Data4: 366676696
   Banks:
   - {fileID: -4717538484458709843}
-  IsStream: 1
+  IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 10209
---- !u!114 &-4751033420142622786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Music/Vida
-  m_EditorClassIdentifier: 
-  Name: Vida
-  StudioPath: 
-  Min: 0
-  Max: 100
-  Default: 100
-  ID:
-    data1: 1863223521
-    data2: 351531232
-  Type: 0
-  IsGlobal: 1
-  Labels: []
-  Exists: 1
 --- !u!114 &-4717538484458709843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,7 +62,7 @@ MonoBehaviour:
   Path: Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638420483800000000
+  lastModified: 638420609660000000
   FileSizes: []
   Exists: 1
 --- !u!114 &-4420039652175594476
@@ -142,7 +118,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 991
 --- !u!114 &-2693505776031582478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,7 +146,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-2626230230613209452
+--- !u!114 &-2366680183007396349
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,21 +155,51 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Music/Nivel
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFXs/Golpes
   m_EditorClassIdentifier: 
-  Name: Nivel
-  StudioPath: 
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 461880087
-    data2: 336898242
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
+  Path: event:/SFXs/Golpes
+  Guid:
+    Data1: 702903957
+    Data2: 1078674432
+    Data3: 1022884533
+    Data4: -1701863517
+  Banks:
+  - {fileID: -4717538484458709843}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1548
+--- !u!114 &-1986464532367767962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFXs/Paso 123456789
+  m_EditorClassIdentifier: 
+  Path: event:/SFXs/Paso 123456789
+  Guid:
+    Data1: 1658598840
+    Data2: 1146493193
+    Data3: 1698320515
+    Data4: 881177810
+  Banks:
+  - {fileID: -4717538484458709843}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,17 +220,17 @@ MonoBehaviour:
   - {fileID: 2259742967878357057}
   - {fileID: -2693505776031582478}
   - {fileID: -4337479286166548764}
-  - {fileID: 3340158930589946406}
-  - {fileID: 5964485216047435555}
-  - {fileID: -5134673095188591138}
-  - {fileID: 5298819615293795303}
+  - {fileID: -2366680183007396349}
+  - {fileID: -5579214210315036598}
+  - {fileID: -1986464532367767962}
+  - {fileID: 5794496096074290975}
   EditorParameters:
-  - {fileID: 2845603765422611240}
+  - {fileID: 7940960546909683255}
   MasterBanks:
   - {fileID: -4717538484458709843}
   StringsBanks:
   - {fileID: -8382427005597710244}
-  cacheTime: 638420483800000000
+  cacheTime: 638420609660000000
   cacheVersion: 131616
 --- !u!114 &2259742967878357057
 MonoBehaviour:
@@ -246,16 +252,41 @@ MonoBehaviour:
     Data4: 1319148693
   Banks:
   - {fileID: -4717538484458709843}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 74181
+--- !u!114 &5794496096074290975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFXs/Horizontal_hit
+  m_EditorClassIdentifier: 
+  Path: event:/SFXs/Horizontal_hit
+  Guid:
+    Data1: 233580540
+    Data2: 1136514750
+    Data3: 2036242107
+    Data4: -423186751
+  Banks:
+  - {fileID: -4717538484458709843}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
-  Parameters:
-  - {fileID: -2626230230613209452}
-  - {fileID: -4751033420142622786}
+  Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
---- !u!114 &2845603765422611240
+  Length: 10209
+--- !u!114 &7940960546909683255
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -279,84 +310,3 @@ MonoBehaviour:
   IsGlobal: 1
   Labels: []
   Exists: 1
---- !u!114 &3340158930589946406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFXs/Paso 123456789
-  m_EditorClassIdentifier: 
-  Path: event:/SFXs/Paso 123456789
-  Guid:
-    Data1: 1658598840
-    Data2: 1146493193
-    Data3: 1698320515
-    Data4: 881177810
-  Banks:
-  - {fileID: -4717538484458709843}
-  IsStream: 1
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &5298819615293795303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFXs/Horizontal_hit
-  m_EditorClassIdentifier: 
-  Path: event:/SFXs/Horizontal_hit
-  Guid:
-    Data1: 233580540
-    Data2: 1136514750
-    Data3: 2036242107
-    Data4: -423186751
-  Banks:
-  - {fileID: -4717538484458709843}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 10209
---- !u!114 &5964485216047435555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFXs/Backhand_hit
-  m_EditorClassIdentifier: 
-  Path: event:/SFXs/Backhand_hit
-  Guid:
-    Data1: 2043771690
-    Data2: 1240524308
-    Data3: 1889874324
-    Data4: 366676696
-  Banks:
-  - {fileID: -4717538484458709843}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 10209

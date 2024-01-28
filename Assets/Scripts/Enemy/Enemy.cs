@@ -19,6 +19,9 @@ public class Enemy : Entity
     [SerializeField]
     private Weapon _hammer;
 
+    [SerializeField]
+    private Renderer _renderer;
+
     private NavMeshAgent _agent;
 
     private GameObject _player;
@@ -30,9 +33,12 @@ public class Enemy : Entity
 
     private bool _isAttacking;
 
+    private Color _color;
+
     protected override float AttackDamage => _attack;
 
     protected override bool IsAttacking => _isAttacking;
+    protected override bool HasAlreadyHitInThisAttack(Entity target) => false;
 
     public override bool HandleWeaponCollision(Entity target)
     {
@@ -43,6 +49,14 @@ public class Enemy : Entity
         }
 
         return false;
+    }
+
+    public void SetColor(Color color)
+    {
+        _color = color;
+        var material = _renderer.material;
+        material.SetColor("_Color", color);
+        _renderer.material = material;
     }
 
     protected override void Awake()
@@ -187,6 +201,12 @@ float speed = 0;
     //     transform.position = position;
     //     _agent.nextPosition = transform.position;
     // }
+    
+    public void OnAttackHit()
+    {
+        //Do nothing (animation request)
+    }
+    
     public void OnAttackFinished()
     {
         _isAttacking = false;

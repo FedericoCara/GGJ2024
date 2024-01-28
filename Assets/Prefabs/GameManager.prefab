@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &410585538369824548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7773585215512944551}
+  - component: {fileID: 2974884346025914503}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7773585215512944551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410585538369824548}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2974884346025914503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410585538369824548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62b135efdc34d59a951543677383dd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialRagdoll: {fileID: 0}
+  _playerPrefab: {fileID: 3210370870521382039, guid: e9469df74bb924c449f6feebf7687f34,
+    type: 3}
+  _enemyPrefab: {fileID: 162129761092747828, guid: ab70e18af4873166b8c5ef717cdfba2d,
+    type: 3}
+  _enemyColors:
+  - {r: 0.8356918, g: 1, b: 0.5518868, a: 1}
+  - {r: 1, g: 0.25943398, b: 0.3204219, a: 1}
+  - {r: 0.2588235, g: 0.58180356, b: 1, a: 1}
+  - {r: 0.79665565, g: 0, b: 1, a: 1}
+  - {r: 0.2783019, g: 1, b: 0.36093533, a: 1}
+  - {r: 0.990566, g: 0.63963395, b: 0.11681201, a: 1}
+  _enemySpawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  _enemySpawnInterval: 3
+  _enemyMaxCount: 5
+  _startButton: {fileID: 0}
+  _killsText: {fileID: 0}
+  _healthBar: {fileID: 0}
+  _gameOverObjects: []

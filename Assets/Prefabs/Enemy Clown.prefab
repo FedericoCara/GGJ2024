@@ -223,6 +223,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4507566687237598981, guid: e9469df74bb924c449f6feebf7687f34,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 16e112cc63d3d45e3b7fd11664231357, type: 2}
     - target: {fileID: 4538103543995916909, guid: e9469df74bb924c449f6feebf7687f34,
         type: 3}
       propertyPath: m_Layer
@@ -427,22 +432,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3156841553124990704, guid: e9469df74bb924c449f6feebf7687f34,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8367300856128809729}
-    - targetCorrespondingSourceObject: {fileID: 3156841553124990704, guid: e9469df74bb924c449f6feebf7687f34,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1048260037726606111}
     - targetCorrespondingSourceObject: {fileID: 853452729797205242, guid: e9469df74bb924c449f6feebf7687f34,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3526885868669296706}
   m_SourcePrefab: {fileID: 100100000, guid: e9469df74bb924c449f6feebf7687f34, type: 3}
---- !u!4 &220654432774791015 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7628571120647466887, guid: e9469df74bb924c449f6feebf7687f34,
-    type: 3}
-  m_PrefabInstance: {fileID: 7697158696930308320}
-  m_PrefabAsset: {fileID: 0}
 --- !u!54 &880062836625621920 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 7414984857316569920, guid: e9469df74bb924c449f6feebf7687f34,
@@ -467,12 +462,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbd819f7c3100433bb010c697de2179a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &3921145935595339372 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6682066936407690892, guid: e9469df74bb924c449f6feebf7687f34,
-    type: 3}
-  m_PrefabInstance: {fileID: 7697158696930308320}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4692354605489843728 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3156841553124990704, guid: e9469df74bb924c449f6feebf7687f34,
@@ -499,6 +488,7 @@ MonoBehaviour:
   _attack: 10
   _attackCoolDown: 4
   _hammer: {fileID: 9100482913926160196}
+  _renderer: {fileID: 6079812255203500005}
 --- !u!195 &1244567292368196766
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -545,25 +535,6 @@ MonoBehaviour:
       Data3: -1137762174
       Data4: 114358891
     Path: event:/SFXs/Muerte_malo
---- !u!114 &8367300856128809729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4692354605489843728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df35bd6aaaf8e4d5da9ff4093ea434ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _owner: {fileID: 0}
-  _hitsBeforeDestruction: 5
-  _remainingHitsBeforeDestruction: 0
-  hips: {fileID: 3921145935595339372}
-  grabbingPoint: {fileID: 220654432774791015}
-  _destructionEffectPrefab: {fileID: 104829970813648393, guid: d3015b7eea383f64d8b81f965cc466e7,
-    type: 3}
 --- !u!114 &1048260037726606111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,6 +562,12 @@ MonoBehaviour:
       Data3: -1608522847
       Data4: 85110755
     Path: event:/SFXs/Pasos_malos
+--- !u!137 &6079812255203500005 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4507566687237598981, guid: e9469df74bb924c449f6feebf7687f34,
+    type: 3}
+  m_PrefabInstance: {fileID: 7697158696930308320}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6992365851503537178 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 853452729797205242, guid: e9469df74bb924c449f6feebf7687f34,

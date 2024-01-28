@@ -21,7 +21,7 @@ public class FinishingBlowReceiver : MonoBehaviour
             return;
         KilledByHit(playerTransform);
         Debug.DrawLine(transform.position, transform.position+_forceVector*normalKillStrength, Color.red, 5);
-        Debug.Log(name+" killed by normal hit");
+        //Debug.Log(name+" killed by normal hit");
         ApplyNormalForce();
     }
 
@@ -33,7 +33,7 @@ public class FinishingBlowReceiver : MonoBehaviour
         KilledByHit(playerTransform);
         _forceVector = CalculateForceVector(playerTransform);
         Debug.DrawLine(transform.position, transform.position+_forceVector*backhandKillStrength, Color.red, 5);
-        Debug.Log(name+" killed by backhand hit");
+        //Debug.Log(name+" killed by backhand hit");
         ApplyBackhandForce();
     }
 
@@ -44,7 +44,7 @@ public class FinishingBlowReceiver : MonoBehaviour
         KilledByHit(playerTransform);
         _forceVector = CalculateForceVector(playerTransform);
         Debug.DrawLine(transform.position, transform.position+_forceVector*horizontalKillStrength, Color.red, 5);
-        Debug.Log(name+" killed by horizontal hit");
+        //Debug.Log(name+" killed by horizontal hit");
         ApplyHorizontalForce();
     }
 

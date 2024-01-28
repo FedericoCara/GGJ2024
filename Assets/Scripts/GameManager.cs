@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,7 +8,16 @@ using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
+    private GraspableRagdoll _initialRagdoll;
+
+    [SerializeField]
+    private Player _playerPrefab;
+
+    [SerializeField]
     private Enemy _enemyPrefab;
+
+    [SerializeField]
+    private Color[] _enemyColors;
 
     [SerializeField]
     private Transform[] _enemySpawnPoints;
@@ -19,13 +29,16 @@ public class GameManager : MonoBehaviour
     private int _enemyMaxCount = 5;
 
     [SerializeField]
+    private GameObject _startButton;
+
+    [SerializeField]
     private Text _killsText;
 
     [SerializeField]
     private Image _healthBar;
 
     [SerializeField]
-    private GameObject _gameOverScreen;
+    private GameObject[] _gameOverObjects;
 
     private float _timeRemainingForNextSpawn;
 
@@ -39,9 +52,27 @@ public class GameManager : MonoBehaviour
 
     private Player _player;
 
+    private List<Enemy> _spawnedEnemies = new();
+
     public void StartGame()
     {
+        if (_startButton != null)
+        {
+            _startButton.SetActive(false);
+        }
+
         _hasGameStarted = true;
+        _isGameOver = false;
+        _timeRemainingForNextSpawn = 0;
+        _kills = 0;
+        _liveEnemies = 0;
+        _killsText.text = "0";
+
+        if (_player == null)
+        {
+            _player = Instantiate(_playerPrefab);
+        }
+        UpdateKills();
     }
 
     public void Restart()
@@ -75,7 +106,9 @@ public class GameManager : MonoBehaviour
         if (_timeRemainingForNextSpawn < 0 && _liveEnemies < _enemyMaxCount)
         {
             var enemy = Instantiate(_enemyPrefab, _enemySpawnPoints[Random.Range(0, _enemySpawnPoints.Length)].position, Quaternion.identity);
+            enemy.SetColor(_enemyColors[Random.Range(0, _enemyColors.Length)]);
             enemy.SetOnEnemyDiedAction(OnEnemyDied);
+            _spawnedEnemies.Add(enemy);
             _timeRemainingForNextSpawn = _enemySpawnInterval;
             _liveEnemies++;
         }
@@ -85,15 +118,41 @@ public class GameManager : MonoBehaviour
     {
         _kills++;
         _liveEnemies--;
+        UpdateKills();
+    }
+
+    private void UpdateKills()
+    {
         _killsText.text = _kills.ToString();
     }
 
     private void OnPlayerDied(Entity player)
     {
         _isGameOver = true;
-        if (_gameOverScreen != null)
+        if (_startButton != null)
         {
-            _gameOverScreen.SetActive(true);
+            _startButton.SetActive(true);
+        }
+
+        if (_initialRagdoll != null)
+        {
+        Destroy(_initialRagdoll.gameObject);
+        }
+
+        player.gameObject.tag = "Untagged";
+        _initialRagdoll = _player.GetComponent<GraspableRagdoll>();
+        _player = null;
+
+        _spawnedEnemies.ForEach(enemy => 
+        {
+            if (enemy != null) Destroy(enemy.gameObject);
+        });
+
+        _spawnedEnemies.Clear();
+
+        foreach (var go in _gameOverObjects)
+        {
+            go.SetActive(true);
         }
     }
 }

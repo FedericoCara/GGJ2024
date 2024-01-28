@@ -1028,3 +1028,4 @@ Assets/Plugins/Editor/XAds/XAdsDependencies.xml
 Assets/Plugins/Editor/XAds/XAdsDependencies.xml.meta
 Assets/Plugins/iOS/XAds/XAdsSwiftSupportPlugin.swift
 Assets/Plugins/iOS/XAds/XAdsSwiftSupportPlugin.swift.meta
+mac deploy
