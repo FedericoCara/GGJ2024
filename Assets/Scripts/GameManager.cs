@@ -16,12 +16,17 @@ public class GameManager : MonoBehaviour
     private float _enemySpawnInterval = 0.5f;
 
     [SerializeField]
+    private int _enemyMaxCount = 5;
+
+    [SerializeField]
     private Text _killsText;
 
     [SerializeField]
     private GameObject _gameOverScreen;
 
     private float _timeRemainingForNextSpawn;
+
+    private int _liveEnemies;
 
     private int _kills;
 
@@ -52,17 +57,19 @@ public class GameManager : MonoBehaviour
         }
 
         _timeRemainingForNextSpawn -= Time.deltaTime;
-        if (_timeRemainingForNextSpawn < 0)
+        if (_timeRemainingForNextSpawn < 0 && _liveEnemies < _enemyMaxCount)
         {
             var enemy = Instantiate(_enemyPrefab, _enemySpawnPoints[Random.Range(0, _enemySpawnPoints.Length)].position, Quaternion.identity);
             enemy.SetOnEnemyDiedAction(OnEnemyDied);
             _timeRemainingForNextSpawn = _enemySpawnInterval;
+            _liveEnemies++;
         }
     }
 
     private void OnEnemyDied(Enemy enemy)
     {
         _kills++;
+        _liveEnemies--;
         _killsText.text = _kills.ToString();
     }
 

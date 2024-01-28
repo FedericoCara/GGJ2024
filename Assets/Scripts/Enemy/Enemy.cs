@@ -38,6 +38,14 @@ public class Enemy : Entity
         _onEnemyDied = action;
     }
 
+    public override void HandleWeaponCollision(Entity target)
+    {
+        if (target is Player)
+        {
+            base.HandleWeaponCollision(target);
+        }
+    }
+
     protected override void Awake()
     {
         base.Awake();
@@ -59,6 +67,8 @@ public class Enemy : Entity
             {
                 _player = GameObject.FindGameObjectWithTag("Player");
             }
+
+            _attackCoolDownTimeRemaining -= Time.deltaTime;
 float speed = 0;
             // if (_player == null)
             // {
@@ -107,19 +117,13 @@ float speed = 0;
 
                         if (_agent.velocity.magnitude > 0.1)
                         {
-                        Animator.SetFloat(GenericBehaviour.SpeedParameterHash, _agent.velocity.magnitude);
-   _agent.nextPosition = Animator.rootPosition;
+                            Animator.SetFloat(GenericBehaviour.SpeedParameterHash, _agent.velocity.magnitude);
+                            _agent.nextPosition = Animator.rootPosition;
                         }
                         else
                         {
                             Animator.SetFloat(GenericBehaviour.SpeedParameterHash, 0, speedDampTime, Time.deltaTime);
                             _agent.SetDestination(transform.position);
-
-                            if (_attackCoolDownTimeRemaining < 0)
-                            {
-                                Attack();
-                            }
-                            
 
                         }
                 //         if (shouldMove)
@@ -137,8 +141,7 @@ float speed = 0;
                     }
                     else
                     {
-		    Animator.SetFloat(GenericBehaviour.SpeedParameterHash, 0, speedDampTime, Time.deltaTime);
-                    _agent.SetDestination(transform.position);
+                        OnPlayerInRange();
 //transform.position = oldPosition;
                     }
                 // }
@@ -159,7 +162,7 @@ float speed = 0;
 		    Animator.SetFloat(GenericBehaviour.SpeedParameterHash, 0, speedDampTime, Time.deltaTime);
             _agent.destination = transform.position;
         }
-    oldPosition=transform.position;
+        oldPosition=transform.position;
     }
 
     // //         if (velocity.magnitude > 0.5f && _agent.remainingDistance > _range)
@@ -196,8 +199,20 @@ float speed = 0;
         _onEnemyDied?.Invoke(this);
     }
 
+    private void OnPlayerInRange()
+    {
+        Animator.SetFloat(GenericBehaviour.SpeedParameterHash, 0, speedDampTime, Time.deltaTime);
+        _agent.SetDestination(transform.position);
+
+        if (_attackCoolDownTimeRemaining < 0)
+        {
+            Attack();
+        }
+    }
+
     private void Attack()
     {
+        Debug.Log("ENEMY ATTACKING");
         Animator.SetTrigger(AttackBehavior.AttackNormal);
         _isAttacking = true;
         _attackCoolDownTimeRemaining = _attackCoolDown;

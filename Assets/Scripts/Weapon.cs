@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField]
     private Entity _owner;
+
     public Entity Owner
     {
         get => _owner;

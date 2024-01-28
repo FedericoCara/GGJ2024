@@ -18,8 +18,6 @@ public abstract class Entity : MonoBehaviour
 
     private Animator _animator;
 
-    private bool _isAttacking;
-
     public bool IsDead => _hp <= 0;
 
     protected abstract float AttackDamage { get; }
@@ -28,8 +26,13 @@ public abstract class Entity : MonoBehaviour
 
     protected Animator Animator => _animator;
     
-    public void HandleWeaponCollision(Entity target)
+    public virtual void HandleWeaponCollision(Entity target)
     {
+        if (target == this)
+        {
+            return;
+        }
+
         if (!IsAttacking)
         {
             return;
@@ -61,11 +64,6 @@ public abstract class Entity : MonoBehaviour
         return false;
     }
 
-    public virtual void OnAttackAnimationFinished()
-    {
-        _isAttacking = false;
-    }
-
     protected virtual void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -80,12 +78,6 @@ public abstract class Entity : MonoBehaviour
 		Ray ray = new Ray(transform.position + Vector3.up * (2 * colExtents.x), Vector3.down);
 		return Physics.SphereCast(ray, colExtents.x, colExtents.x + 0.2f);
 	}
-
-    protected void Attack(string animationTrigger)
-    {
-        _animator.SetTrigger(animationTrigger);
-        _isAttacking = true;
-    }
 
     protected virtual void OnAttackTargetDead(Entity target)
     {

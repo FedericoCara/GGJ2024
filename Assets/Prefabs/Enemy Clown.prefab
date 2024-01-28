@@ -546,6 +546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df35bd6aaaf8e4d5da9ff4093ea434ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _owner: {fileID: 0}
   hips: {fileID: 3921145935595339372}
   grabbingPoint: {fileID: 220654432774791015}
 --- !u!1 &6992365851503537178 stripped
@@ -581,6 +582,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8208117628753795896}
     m_Modifications:
+    - target: {fileID: 258789538862756086, guid: 1e31a63fe17e0b24c8334c16ddbe3ede,
+        type: 3}
+      propertyPath: _owner
+      value: 
+      objectReference: {fileID: 162129761092747828}
     - target: {fileID: 1947623722486127871, guid: 1e31a63fe17e0b24c8334c16ddbe3ede,
         type: 3}
       propertyPath: m_Name
