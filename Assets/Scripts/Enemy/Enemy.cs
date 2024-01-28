@@ -29,6 +29,8 @@ public class Enemy : Entity
 
     protected override float AttackDamage => _attack;
 
+    protected override bool IsAttacking => false;
+
     public void SetOnEnemyDiedAction(Action<Enemy> action)
     {
         _onEnemyDied = action;
@@ -44,6 +46,11 @@ public class Enemy : Entity
 
     protected void Update()
     {
+        if (IsDead)
+        {
+            return;
+        }
+
         if (IsGrounded())
         {
             if (_player == null)

@@ -22,12 +22,19 @@ public abstract class Entity : MonoBehaviour
 
     protected abstract float AttackDamage { get; }
 
-    protected bool IsAttacking => _isAttacking;
+    protected abstract bool IsAttacking { get; }
 
     protected Animator Animator => _animator;
+
+    protected bool IsDead => _hp <= 0;
     
     public void HandleWeaponCollision(Entity target)
     {
+        if (!IsAttacking)
+        {
+            return;
+        }
+
         if (target.TakeDamage(AttackDamage))
         {
             OnAttackTargetDead(target);

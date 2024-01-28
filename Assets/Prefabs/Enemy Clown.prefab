@@ -8,6 +8,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114714928762996528, guid: e9469df74bb924c449f6feebf7687f34,
+        type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 232009186177066109, guid: e9469df74bb924c449f6feebf7687f34,
         type: 3}
       propertyPath: m_Layer
@@ -397,6 +402,7 @@ PrefabInstance:
     - {fileID: 7254355712644593291, guid: e9469df74bb924c449f6feebf7687f34, type: 3}
     - {fileID: 6257900706002257452, guid: e9469df74bb924c449f6feebf7687f34, type: 3}
     - {fileID: 4007567582454429514, guid: e9469df74bb924c449f6feebf7687f34, type: 3}
+    - {fileID: 3210370870521382039, guid: e9469df74bb924c449f6feebf7687f34, type: 3}
     m_RemovedGameObjects:
     - {fileID: 6870170686374784563, guid: e9469df74bb924c449f6feebf7687f34, type: 3}
     m_AddedGameObjects: []
