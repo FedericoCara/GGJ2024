@@ -14,7 +14,7 @@ public class MoveAudio : MonoBehaviour
     {
         if(GetCurrentSpeed()<=walkSpeed)
         {
-            Debug.Log("PlayWalkStep");
+            //Debug.Log("PlayWalkStep");
             RuntimeManager.PlayOneShot(walkAudioStep);
         }
     }
@@ -23,7 +23,7 @@ public class MoveAudio : MonoBehaviour
     {
         if (GetCurrentSpeed() >= minRunSpeed)
         {
-            Debug.Log("PlayRunStep");
+            //Debug.Log("PlayRunStep");
             RuntimeManager.PlayOneShot(runAudioStep);
         }
     }

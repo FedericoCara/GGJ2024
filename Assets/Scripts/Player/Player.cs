@@ -60,7 +60,8 @@ public class Player : Entity
     {
         base.Die();
         _moveBehavior.enabled = false;
-        _grabController.LetGo();
+        if(_grabController!=null)
+            _grabController.LetGo();
         _ragdollEnabler.SetEnabled(true);
     }
 }

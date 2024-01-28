@@ -76,10 +76,6 @@ public class AttackBehavior : MonoBehaviour
     {
         if(_waitingToResetTriggers)
             return;
-        
-        if(WasAttacking() && !IsAttackState())
-            OnAttackFinished();
-
 
         if (Input.GetButtonDown("Fire1"))
             PerformNormalAttack();
@@ -114,6 +110,7 @@ public class AttackBehavior : MonoBehaviour
         _doingNormalAttack = false;
         _doingBackhandAttack = false;
         _doingHorizontalAttack = false;
+        Debug.Log("On Attack Finished for "+name);
     }
 
     private void PerformNormalAttack()

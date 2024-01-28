@@ -184,6 +184,7 @@ float speed = 0;
     public void OnAttackFinished()
     {
         _isAttacking = false;
+        //Debug.Log("On Attack Finished for "+name);
     }
 
     protected override void Die()
