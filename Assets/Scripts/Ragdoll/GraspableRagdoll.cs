@@ -24,6 +24,7 @@ public class GraspableRagdoll : Weapon
     {
         EnablePhysics(false);        
         transform.SetParent(handTransform);
+        hips.rotation = Quaternion.identity;
         transform.position = handTransform.position - grabbingPoint.position + transform.position;
         SetLayer(_grabbedLayer);
     }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 public class AttackBehavior : MonoBehaviour
@@ -13,11 +14,17 @@ public class AttackBehavior : MonoBehaviour
     [SerializeField]
     private float _normalAttackDamage = 40;
 
+    [SerializeField] private EventReference normalAttackAudio;
+    
     [SerializeField]
     private float _horizontalAttackDamage = 60;
+    
+    [SerializeField] private EventReference horizontalAttackAudio;
 
     [SerializeField]
     private float _backhandAttackDamage = 100;
+    
+    [SerializeField] private EventReference backhandAttackAudio;
     
     private Animator _animator;
     private bool _waitingToResetTriggers;
@@ -114,6 +121,7 @@ public class AttackBehavior : MonoBehaviour
         _animator.SetTrigger(AttackNormal);
         ResetTriggersAfterSomeMilliseconds();
         _doingNormalAttack = true;
+        RuntimeManager.PlayOneShot(normalAttackAudio);
     }
 
     private void PerformHorizontalAttack()
@@ -121,6 +129,7 @@ public class AttackBehavior : MonoBehaviour
         _animator.SetTrigger(AttackHorizontal);
         ResetTriggersAfterSomeMilliseconds();
         _doingHorizontalAttack = true;
+        RuntimeManager.PlayOneShot(horizontalAttackAudio);
     }
 
     private void PerformBackhandAttack()
@@ -128,6 +137,7 @@ public class AttackBehavior : MonoBehaviour
         _animator.SetTrigger(AttackBackhand);
         ResetTriggersAfterSomeMilliseconds();
         _doingBackhandAttack = true;
+        RuntimeManager.PlayOneShot(backhandAttackAudio);
     }
 
     private void ResetTriggersAfterSomeMilliseconds()
