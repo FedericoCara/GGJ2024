@@ -44,15 +44,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62b135efdc34d59a951543677383dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _initialRagdoll: {fileID: 0}
   _playerPrefab: {fileID: 3210370870521382039, guid: e9469df74bb924c449f6feebf7687f34,
     type: 3}
   _enemyPrefab: {fileID: 162129761092747828, guid: ab70e18af4873166b8c5ef717cdfba2d,
     type: 3}
+  _enemyColors:
+  - {r: 0.8356918, g: 1, b: 0.5518868, a: 1}
+  - {r: 1, g: 0.25943398, b: 0.3204219, a: 1}
+  - {r: 0.2588235, g: 0.58180356, b: 1, a: 1}
+  - {r: 0.79665565, g: 0, b: 1, a: 1}
+  - {r: 0.2783019, g: 1, b: 0.36093533, a: 1}
+  - {r: 0.990566, g: 0.63963395, b: 0.11681201, a: 1}
   _enemySpawnPoints:
   - {fileID: 0}
   - {fileID: 0}
   _enemySpawnInterval: 3
   _enemyMaxCount: 5
+  _startButton: {fileID: 0}
   _killsText: {fileID: 0}
   _healthBar: {fileID: 0}
   _gameOverObjects: []

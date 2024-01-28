@@ -20,7 +20,7 @@ public class Enemy : Entity
     private Weapon _hammer;
 
     [SerializeField]
-    private MeshRenderer _renderer;
+    private Renderer _renderer;
 
     private NavMeshAgent _agent;
 
@@ -54,7 +54,9 @@ public class Enemy : Entity
     public void SetColor(Color color)
     {
         _color = color;
-        _renderer.material.SetColor("Color", color);
+        var material = _renderer.material;
+        material.SetColor("Color", color);
+        _renderer.material = material;
     }
 
     protected override void Awake()

@@ -223,6 +223,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4507566687237598981, guid: e9469df74bb924c449f6feebf7687f34,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 16e112cc63d3d45e3b7fd11664231357, type: 2}
     - target: {fileID: 4538103543995916909, guid: e9469df74bb924c449f6feebf7687f34,
         type: 3}
       propertyPath: m_Layer
@@ -483,6 +488,7 @@ MonoBehaviour:
   _attack: 10
   _attackCoolDown: 4
   _hammer: {fileID: 9100482913926160196}
+  _renderer: {fileID: 6079812255203500005}
 --- !u!195 &1244567292368196766
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -556,6 +562,12 @@ MonoBehaviour:
       Data3: -1608522847
       Data4: 85110755
     Path: event:/SFXs/Pasos_malos
+--- !u!137 &6079812255203500005 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4507566687237598981, guid: e9469df74bb924c449f6feebf7687f34,
+    type: 3}
+  m_PrefabInstance: {fileID: 7697158696930308320}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6992365851503537178 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 853452729797205242, guid: e9469df74bb924c449f6feebf7687f34,
