@@ -3,7 +3,12 @@ guid: e95d81a83addb974c8727d033c7c1e26
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Clown-Material
+    second: {fileID: 2100000, guid: 71cc8b684335608429a0c6c0f9a48e75, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
