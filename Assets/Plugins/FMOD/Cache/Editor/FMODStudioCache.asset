@@ -1,0 +1,233 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4420039652175594476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFXs/Pasos_malos
+  m_EditorClassIdentifier: 
+  Path: event:/SFXs/Pasos_malos
+  Guid:
+    Data1: -2098307221
+    Data2: 1220754863
+    Data3: -1608522847
+    Data4: 85110755
+  Banks:
+  - {fileID: 8001854259342317155}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-4337479286166548764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFXs/Muerte_malo
+  m_EditorClassIdentifier: 
+  Path: event:/SFXs/Muerte_malo
+  Guid:
+    Data1: 2059644841
+    Data2: 1326907047
+    Data3: -1137762174
+    Data4: 114358891
+  Banks:
+  - {fileID: 8001854259342317155}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2693505776031582478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFXs/Pasos_personaje
+  m_EditorClassIdentifier: 
+  Path: event:/SFXs/Pasos_personaje
+  Guid:
+    Data1: 1384013990
+    Data2: 1100773393
+    Data3: -1830502750
+    Data4: -2074907667
+  Banks:
+  - {fileID: 8001854259342317155}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: 5493094948485756943}
+  - {fileID: 8001854259342317155}
+  EditorEvents:
+  - {fileID: -4420039652175594476}
+  - {fileID: 2259742967878357057}
+  - {fileID: 6849973439040255042}
+  - {fileID: -2693505776031582478}
+  - {fileID: -4337479286166548764}
+  - {fileID: 3340158930589946406}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 8001854259342317155}
+  StringsBanks:
+  - {fileID: 5493094948485756943}
+  cacheTime: 638419678020000000
+  cacheVersion: 131616
+--- !u!114 &2259742967878357057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Music
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Music
+  Guid:
+    Data1: 292277879
+    Data2: 1324810624
+    Data3: -1008689513
+    Data4: 1319148693
+  Banks:
+  - {fileID: 8001854259342317155}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &3340158930589946406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFXs/Paso 123456789
+  m_EditorClassIdentifier: 
+  Path: event:/SFXs/Paso 123456789
+  Guid:
+    Data1: 1658598840
+    Data2: 1146493193
+    Data3: 1698320515
+    Data4: 881177810
+  Banks:
+  - {fileID: 8001854259342317155}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5493094948485756943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Build/Desktop/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: "../../Documentos/Proyecto FMOD de Payas\xEDn/Build/Desktop/Master.strings.bank"
+  Name: Build/Desktop/Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638419678020000000
+  FileSizes:
+  - Name: 
+    Value: 1016
+  Exists: 1
+--- !u!114 &6849973439040255042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFXs/Golpes
+  m_EditorClassIdentifier: 
+  Path: event:/SFXs/Golpes
+  Guid:
+    Data1: 702903957
+    Data2: 1078674432
+    Data3: 1022884533
+    Data4: -1701863517
+  Banks:
+  - {fileID: 8001854259342317155}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8001854259342317155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Build/Desktop/Master.bank
+  m_EditorClassIdentifier: 
+  Path: "../../Documentos/Proyecto FMOD de Payas\xEDn/Build/Desktop/Master.bank"
+  Name: Build/Desktop/Master
+  StudioPath: bank:/Master
+  lastModified: 638419678020000000
+  FileSizes:
+  - Name: 
+    Value: 183648
+  Exists: 1

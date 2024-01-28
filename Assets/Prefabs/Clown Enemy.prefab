@@ -388,6 +388,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e95d81a83addb974c8727d033c7c1e26,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 9043618653273937458}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e95d81a83addb974c8727d033c7c1e26,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 8156310529902133820}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e95d81a83addb974c8727d033c7c1e26,
         type: 3}
@@ -1566,6 +1570,24 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.89, z: 0}
+--- !u!114 &9043618653273937458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7902506100460079476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc291db5ea33cfe35a8bfebbfbc9e003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedDampTime: 0.1
+  _maxHP: 100
+  _speedAnimationMultiplier: 10
+  _range: 1
+  _attack: 20
+  _attackCoolDown: 2
 --- !u!114 &8156310529902133820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1610,10 +1632,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ragdollEnabler: {fileID: 8156310529902133820}
-  hips: {fileID: 2238462928109285685}
-  normalKillStrength: 1
-  backhandKillStrength: 3
-  horizontalKillStrength: 5
+  hips: {fileID: 4234550269962979553}
+  normalKillStrength: 500
+  backhandKillStrength: 1500
+  horizontalKillStrength: 1500
 --- !u!1 &8573326727130679884 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1698047825267818089, guid: e95d81a83addb974c8727d033c7c1e26,

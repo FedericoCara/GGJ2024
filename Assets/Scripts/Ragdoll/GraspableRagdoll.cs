@@ -3,12 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GraspableRagdoll : MonoBehaviour
+public class GraspableRagdoll : Weapon
 {
     [SerializeField] private Transform hips;
     [SerializeField] private Transform grabbingPoint;
-
-    public event Action<Collider> OnCollidingWithSomething;
 
     private BoxCollider _collider;
     private List<Rigidbody> _rigidbodies = new();
@@ -75,10 +73,5 @@ public class GraspableRagdoll : MonoBehaviour
         {
             child.gameObject.layer = layer;
         }
-    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        OnCollidingWithSomething?.Invoke(other);
     }
 }
