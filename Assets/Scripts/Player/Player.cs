@@ -20,6 +20,8 @@ public class Player : Entity
     protected override float AttackDamage => _attackBehavior.AttackDamage;
 
     protected override bool IsAttacking => _attackBehavior.IsAttacking;
+    protected override bool HasAlreadyHitInThisAttack(Entity target) => target is Enemy enemyTarget &&
+                                                                        _attackBehavior.EnemiesHitDuringBlow.Contains(enemyTarget);
 
     public void SetOnTakeDamageAction(Action<float> onTookDamage)
     {

@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
         {
             _player = Instantiate(_playerPrefab);
         }
+        UpdateKills();
     }
 
     public void Restart()
@@ -98,6 +99,11 @@ public class GameManager : MonoBehaviour
     {
         _kills++;
         _liveEnemies--;
+        UpdateKills();
+    }
+
+    private void UpdateKills()
+    {
         _killsText.text = _kills.ToString();
     }
 

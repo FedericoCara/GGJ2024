@@ -31,7 +31,9 @@ public class AttackBehavior : MonoBehaviour
     private bool _doingNormalAttack;
     private bool _doingHorizontalAttack;
     private bool _doingBackhandAttack;
-    
+    private List<Enemy> _enemiesHitDuringBlow = new();
+    public List<Enemy> EnemiesHitDuringBlow => _enemiesHitDuringBlow;
+
     public float AttackDamage
     {
         get
@@ -57,6 +59,8 @@ public class AttackBehavior : MonoBehaviour
     
     public bool IsAttacking => _doingNormalAttack || _doingHorizontalAttack || _doingBackhandAttack;
 
+    public void SetDamageTarget(Enemy enemy) => _enemiesHitDuringBlow.Add(enemy);
+    
     public void ApplyFinishingBlow(FinishingBlowReceiver receiver)
     {
         if(_doingNormalAttack)
@@ -104,12 +108,24 @@ public class AttackBehavior : MonoBehaviour
                currentState.IsName("Attack Horizontal");
     }
 
+    public void OnAttackHit()
+    {
+        if(!grabController.IsGrabbing())
+            return;
+        if(_doingNormalAttack)
+            RuntimeManager.PlayOneShot(normalAttackAudio);
+        else if(_doingBackhandAttack)
+            RuntimeManager.PlayOneShot(backhandAttackAudio);
+        else if(_doingHorizontalAttack)
+            RuntimeManager.PlayOneShot(horizontalAttackAudio);
+    }
 
     public void OnAttackFinished()
     {
         _doingNormalAttack = false;
         _doingBackhandAttack = false;
         _doingHorizontalAttack = false;
+        _enemiesHitDuringBlow.Clear();
         Debug.Log("On Attack Finished for "+name);
     }
 
@@ -118,7 +134,6 @@ public class AttackBehavior : MonoBehaviour
         _animator.SetTrigger(AttackNormal);
         ResetTriggersAfterSomeMilliseconds();
         _doingNormalAttack = true;
-        RuntimeManager.PlayOneShot(normalAttackAudio);
     }
 
     private void PerformHorizontalAttack()
@@ -126,7 +141,6 @@ public class AttackBehavior : MonoBehaviour
         _animator.SetTrigger(AttackHorizontal);
         ResetTriggersAfterSomeMilliseconds();
         _doingHorizontalAttack = true;
-        RuntimeManager.PlayOneShot(horizontalAttackAudio);
     }
 
     private void PerformBackhandAttack()
@@ -134,7 +148,6 @@ public class AttackBehavior : MonoBehaviour
         _animator.SetTrigger(AttackBackhand);
         ResetTriggersAfterSomeMilliseconds();
         _doingBackhandAttack = true;
-        RuntimeManager.PlayOneShot(backhandAttackAudio);
     }
 
     private void ResetTriggersAfterSomeMilliseconds()

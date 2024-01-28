@@ -24,7 +24,7 @@ public class GrabController : MonoBehaviour
     {
         if (Input.GetButtonDown("Grab"))
         {
-            if (_grabbedRagdoll!=null)
+            if (IsGrabbing())
             {
                 LetGo();
             }
@@ -34,6 +34,8 @@ public class GrabController : MonoBehaviour
             }
         }
     }
+
+    public bool IsGrabbing() => _grabbedRagdoll!=null;
 
     private void Grab()
     {
