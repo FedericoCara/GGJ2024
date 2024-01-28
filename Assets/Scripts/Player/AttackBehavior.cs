@@ -126,7 +126,7 @@ public class AttackBehavior : MonoBehaviour
         _doingBackhandAttack = false;
         _doingHorizontalAttack = false;
         _enemiesHitDuringBlow.Clear();
-        Debug.Log("On Attack Finished for "+name);
+        //Debug.Log("On Attack Finished for "+name);
     }
 
     private void PerformNormalAttack()
