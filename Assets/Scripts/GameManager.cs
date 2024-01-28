@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -6,6 +7,9 @@ using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    private Player _playerPrefab;
+
     [SerializeField]
     private Enemy _enemyPrefab;
 
@@ -25,7 +29,7 @@ public class GameManager : MonoBehaviour
     private Image _healthBar;
 
     [SerializeField]
-    private GameObject _gameOverScreen;
+    private GameObject[] _gameOverObjects;
 
     private float _timeRemainingForNextSpawn;
 
@@ -39,9 +43,18 @@ public class GameManager : MonoBehaviour
 
     private Player _player;
 
+    private List<Enemy> _spawnedEnemies = new();
+
     public void StartGame()
     {
         _hasGameStarted = true;
+        _isGameOver = false;
+        _timeRemainingForNextSpawn = 0;
+
+        if (_player == null)
+        {
+            _player = Instantiate(_playerPrefab);
+        }
     }
 
     public void Restart()
@@ -91,9 +104,15 @@ public class GameManager : MonoBehaviour
     private void OnPlayerDied(Entity player)
     {
         _isGameOver = true;
-        if (_gameOverScreen != null)
+        player.gameObject.tag = "Untagged";
+        _player = null;
+
+        _spawnedEnemies.ForEach(enemy => Destroy(enemy));
+        _spawnedEnemies.Clear();
+
+        foreach (var go in _gameOverObjects)
         {
-            _gameOverScreen.SetActive(true);
+            go.SetActive(true);
         }
     }
 }
