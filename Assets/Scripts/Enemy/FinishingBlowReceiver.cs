@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 public class FinishingBlowReceiver : MonoBehaviour
@@ -9,7 +10,8 @@ public class FinishingBlowReceiver : MonoBehaviour
     [SerializeField] private float normalKillStrength;
     [SerializeField] private float backhandKillStrength;
     [SerializeField] private float horizontalKillStrength;
-
+    [SerializeField] private EventReference deathAudio;
+    
     private Vector3 _forceVector;
     private bool impactReceived;
 
@@ -17,8 +19,7 @@ public class FinishingBlowReceiver : MonoBehaviour
     {
         if(impactReceived)
             return;
-        TurnOff();
-        _forceVector = CalculateForceVector(playerTransform);
+        KilledByHit(playerTransform);
         Debug.DrawLine(transform.position, transform.position+_forceVector*normalKillStrength, Color.red, 5);
         Debug.Log(name+" killed by normal hit");
         ApplyNormalForce();
@@ -29,7 +30,7 @@ public class FinishingBlowReceiver : MonoBehaviour
     {
         if(impactReceived)
             return;
-        TurnOff();
+        KilledByHit(playerTransform);
         _forceVector = CalculateForceVector(playerTransform);
         Debug.DrawLine(transform.position, transform.position+_forceVector*backhandKillStrength, Color.red, 5);
         Debug.Log(name+" killed by backhand hit");
@@ -40,17 +41,19 @@ public class FinishingBlowReceiver : MonoBehaviour
     {
         if(impactReceived)
             return;
-        TurnOff();
+        KilledByHit(playerTransform);
         _forceVector = CalculateForceVector(playerTransform);
         Debug.DrawLine(transform.position, transform.position+_forceVector*horizontalKillStrength, Color.red, 5);
         Debug.Log(name+" killed by horizontal hit");
         ApplyHorizontalForce();
     }
 
-    private void TurnOff()
+    private void KilledByHit(Transform playerTransform)
     {
         _ragdollEnabler.SetEnabled(true);
         impactReceived = true;
+        _forceVector = CalculateForceVector(playerTransform);
+        RuntimeManager.PlayOneShot(deathAudio);
     }
 
     private Vector3 CalculateForceVector(Transform playerTransform)

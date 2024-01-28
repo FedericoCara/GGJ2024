@@ -527,6 +527,13 @@ MonoBehaviour:
   normalKillStrength: 500
   backhandKillStrength: 1500
   horizontalKillStrength: 1500
+  deathAudio:
+    Guid:
+      Data1: 2059644841
+      Data2: 1326907047
+      Data3: -1137762174
+      Data4: 114358891
+    Path: event:/SFXs/Muerte_malo
 --- !u!114 &8367300856128809729
 MonoBehaviour:
   m_ObjectHideFlags: 0
