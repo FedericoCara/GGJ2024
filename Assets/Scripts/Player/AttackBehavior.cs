@@ -47,6 +47,8 @@ public class AttackBehavior : MonoBehaviour
             }
         }
     }
+    
+    public bool IsAttacking => _doingNormalAttack || _doingHorizontalAttack || _doingHorizontalAttack;
 
     public void ApplyFinishingBlow(FinishingBlowReceiver receiver)
     {

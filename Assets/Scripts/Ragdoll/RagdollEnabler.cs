@@ -48,7 +48,7 @@ public class RagdollEnabler : MonoBehaviour
     {
         if(!allowInput)
             return;
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.Y))
         {
             SetEnabled(true);
         }

@@ -9,6 +9,8 @@ public class Player : Entity
 
     protected override float AttackDamage => _attackBehavior.AttackDamage;
 
+    protected override bool IsAttacking => _attackBehavior.IsAttacking;
+
     protected override void Awake()
     {
         base.Awake();
