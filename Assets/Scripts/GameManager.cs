@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -40,6 +41,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject[] _gameOverObjects;
 
+    [SerializeField] private StudioEventEmitter gamemusicEmitter;
+
     private float _timeRemainingForNextSpawn;
 
     private int _liveEnemies;
@@ -53,6 +56,7 @@ public class GameManager : MonoBehaviour
     private Player _player;
 
     private List<Enemy> _spawnedEnemies = new();
+
 
     public void StartGame()
     {
@@ -77,6 +81,7 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
+        gamemusicEmitter.Stop();
         SceneManager.LoadScene(0);
     }
 

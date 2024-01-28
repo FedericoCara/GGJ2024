@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311926, g: 0.38073996, b: 0.35872683, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311932, g: 0.38073996, b: 0.3587271, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 1054016637}
   - component: {fileID: 1054016636}
   m_Layer: 0
-  m_Name: Game Music
+  m_Name: Menu Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -344,6 +344,75 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054016635}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -24.949371, y: 4.1914043, z: -13.23494}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1339922708 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 746076485450335857, guid: 7f284ae84f61a4df781b158d1a12bb4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2110157131336660840}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1683450749
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1683450751}
+  - component: {fileID: 1683450750}
+  m_Layer: 0
+  m_Name: Game Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1683450750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683450749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -661704042
+      Data2: 1314975554
+      Data3: -1008015195
+      Data4: -730979583
+    Path: event:/Music/Music_nivel
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!4 &1683450751
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683450749}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -24.949371, y: 4.1914043, z: -13.23494}
@@ -630,21 +699,91 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 624140615}
+    - target: {fileID: 2750812398204292768, guid: 7f284ae84f61a4df781b158d1a12bb4a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1683450750}
+    - target: {fileID: 2750812398204292768, guid: 7f284ae84f61a4df781b158d1a12bb4a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1054016636}
     - target: {fileID: 4348188741734939662, guid: 7f284ae84f61a4df781b158d1a12bb4a,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 56425077}
+    - target: {fileID: 5698754024734185375, guid: 7f284ae84f61a4df781b158d1a12bb4a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698754024734185375, guid: 7f284ae84f61a4df781b158d1a12bb4a,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698754024734185375, guid: 7f284ae84f61a4df781b158d1a12bb4a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698754024734185375, guid: 7f284ae84f61a4df781b158d1a12bb4a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6183035342343815044, guid: 7f284ae84f61a4df781b158d1a12bb4a,
         type: 3}
       propertyPath: m_Name
       value: GameCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6455348471946483004, guid: 7f284ae84f61a4df781b158d1a12bb4a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6455348471946483004, guid: 7f284ae84f61a4df781b158d1a12bb4a,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6455348471946483004, guid: 7f284ae84f61a4df781b158d1a12bb4a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6455348471946483004, guid: 7f284ae84f61a4df781b158d1a12bb4a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6517760949387184714, guid: 7f284ae84f61a4df781b158d1a12bb4a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 624140615}
+    - target: {fileID: 8663480247260584063, guid: 7f284ae84f61a4df781b158d1a12bb4a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663480247260584063, guid: 7f284ae84f61a4df781b158d1a12bb4a,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663480247260584063, guid: 7f284ae84f61a4df781b158d1a12bb4a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663480247260584063, guid: 7f284ae84f61a4df781b158d1a12bb4a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -687,9 +826,19 @@ PrefabInstance:
       objectReference: {fileID: 703611072}
     - target: {fileID: 2974884346025914503, guid: 90e5bbd53552952e5a9532800267b71b,
         type: 3}
+      propertyPath: _startButton
+      value: 
+      objectReference: {fileID: 1339922708}
+    - target: {fileID: 2974884346025914503, guid: 90e5bbd53552952e5a9532800267b71b,
+        type: 3}
       propertyPath: _initialRagdoll
       value: 
       objectReference: {fileID: 2008881367}
+    - target: {fileID: 2974884346025914503, guid: 90e5bbd53552952e5a9532800267b71b,
+        type: 3}
+      propertyPath: gamemusicEmitter
+      value: 
+      objectReference: {fileID: 1683450750}
     - target: {fileID: 2974884346025914503, guid: 90e5bbd53552952e5a9532800267b71b,
         type: 3}
       propertyPath: _enemySpawnPoints.Array.data[0]
@@ -766,3 +915,4 @@ SceneRoots:
   - {fileID: 597681122}
   - {fileID: 2008881366}
   - {fileID: 1054016637}
+  - {fileID: 1683450751}
