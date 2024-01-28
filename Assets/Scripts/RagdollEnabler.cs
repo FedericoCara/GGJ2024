@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ragdoll : MonoBehaviour
+public class RagdollEnabler : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private List<MonoBehaviour> behaviours;
