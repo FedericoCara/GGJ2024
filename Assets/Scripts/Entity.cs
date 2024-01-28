@@ -9,13 +9,14 @@ public abstract class Entity : MonoBehaviour
     private static readonly int TakeHitTriggerID = Animator.StringToHash("Take Hit");
 
     [SerializeField]
+    private float _hp = 100;
+
+    [SerializeField]
     private float _maxHP = 100;
 	
     private Vector3 colExtents;
 
     private Animator _animator;
-
-    private float _hp;
 
     private bool _isAttacking;
 
