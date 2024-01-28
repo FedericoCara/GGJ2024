@@ -44,16 +44,22 @@ public class GraspableRagdoll : Weapon
         SetLayer(_defaultLayer);
     }
 
-    protected override void OnCollisionWithEntity(Entity target)
+    protected override bool OnCollisionWithEntity(Entity target)
     {
-        base.OnCollisionWithEntity(target);
-        if (--_remainingHitsBeforeDestruction <= 0)
+        if (base.OnCollisionWithEntity(target))
         {
-            var player = Owner as Player;
-            player.RemoveEquippedRagdoll();
-            Instantiate(_destructionEffectPrefab, hips.transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            if (--_remainingHitsBeforeDestruction <= 0)
+            {
+                var player = Owner as Player;
+                player.RemoveEquippedRagdoll();
+                Instantiate(_destructionEffectPrefab, hips.transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
+
+            return true;
         }
+
+        return false;
     }
 
     private void EnablePhysics(bool enable = true)

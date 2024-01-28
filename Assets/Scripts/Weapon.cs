@@ -26,8 +26,8 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    protected virtual void OnCollisionWithEntity(Entity target)
+    protected virtual bool OnCollisionWithEntity(Entity target)
     {
-        _owner.HandleWeaponCollision(target);
+        return _owner.HandleWeaponCollision(target);
     }
 }

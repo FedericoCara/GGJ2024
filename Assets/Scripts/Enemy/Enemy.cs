@@ -16,6 +16,9 @@ public class Enemy : Entity
     [SerializeField]
     private float _attackCoolDown = 2f;
 
+    [SerializeField]
+    private Weapon _hammer;
+
     private NavMeshAgent _agent;
 
     private GameObject _player;
@@ -31,12 +34,15 @@ public class Enemy : Entity
 
     protected override bool IsAttacking => _isAttacking;
 
-    public override void HandleWeaponCollision(Entity target)
+    public override bool HandleWeaponCollision(Entity target)
     {
         if (target is Player)
         {
             base.HandleWeaponCollision(target);
+            return true;
         }
+
+        return false;
     }
 
     protected override void Awake()
@@ -190,6 +196,7 @@ float speed = 0;
     {
         base.Die();
         _agent.enabled = false;
+        Destroy(_hammer.gameObject);
     }
 
     private void OnPlayerInRange()

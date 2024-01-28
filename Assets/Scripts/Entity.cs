@@ -33,22 +33,24 @@ public abstract class Entity : MonoBehaviour
         _onDied = action;
     }
     
-    public virtual void HandleWeaponCollision(Entity target)
+    public virtual bool HandleWeaponCollision(Entity target)
     {
         if (target == this)
         {
-            return;
+            return false;
         }
 
         if (!IsAttacking)
         {
-            return;
+            return false;
         }
 
         if (target.TakeDamage(AttackDamage))
         {
             OnAttackTargetDead(target);
         }
+
+        return true;
     }
 
     public virtual bool TakeDamage(float damage)

@@ -496,8 +496,9 @@ MonoBehaviour:
   _maxHP: 100
   _speedAnimationMultiplier: 10
   _range: 2
-  _attack: 20
-  _attackCoolDown: 2
+  _attack: 10
+  _attackCoolDown: 4
+  _hammer: {fileID: 9100482913926160196}
 --- !u!195 &1244567292368196766
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -694,3 +695,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 9069140553921523634}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9100482913926160196 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 258789538862756086, guid: 1e31a63fe17e0b24c8334c16ddbe3ede,
+    type: 3}
+  m_PrefabInstance: {fileID: 9069140553921523634}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a566fe1fc5358b1c7b3a1efb79a06e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
