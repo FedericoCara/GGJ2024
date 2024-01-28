@@ -1224,23 +1224,23 @@ MonoBehaviour:
       Data2: 1078674432
       Data3: 1022884533
       Data4: -1701863517
-    Path: event:/SFXs/Golpes
+    Path: event:/SFXs/Normal_hit
   _horizontalAttackDamage: 60
   horizontalAttackAudio:
     Guid:
-      Data1: 702903957
-      Data2: 1078674432
-      Data3: 1022884533
-      Data4: -1701863517
-    Path: event:/SFXs/Golpes
+      Data1: 233580540
+      Data2: 1136514750
+      Data3: 2036242107
+      Data4: -423186751
+    Path: event:/SFXs/Horizontal_hit
   _backhandAttackDamage: 100
   backhandAttackAudio:
     Guid:
-      Data1: 702903957
-      Data2: 1078674432
-      Data3: 1022884533
-      Data4: -1701863517
-    Path: event:/SFXs/Golpes
+      Data1: 2043771690
+      Data2: 1240524308
+      Data3: 1889874324
+      Data4: 366676696
+    Path: event:/SFXs/Backhand_hit
 --- !u!114 &5510020132293207705
 MonoBehaviour:
   m_ObjectHideFlags: 0
