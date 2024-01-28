@@ -30,7 +30,7 @@ public class GrabController : MonoBehaviour
     private void LetGo()
     {
         _grabbedRagdoll.LetGo(transform.forward, transform.position);
-        _grabbedRagdoll.Owner = _player;
+        _grabbedRagdoll.Owner = null;
         _grabbedRagdoll = null;
     }
 
@@ -38,7 +38,7 @@ public class GrabController : MonoBehaviour
     {
         _grabbedRagdoll = _graspableAtHand;
         _grabbedRagdoll.SetGrabbedBy(handTransform);
-        _grabbedRagdoll.Owner = null;
+        _grabbedRagdoll.Owner = _player;
     }
 
     private void HandleWeaponCollision(Collider collider)
