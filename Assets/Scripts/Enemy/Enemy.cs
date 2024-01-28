@@ -38,6 +38,7 @@ public class Enemy : Entity
     protected override float AttackDamage => _attack;
 
     protected override bool IsAttacking => _isAttacking;
+    protected override bool HasAlreadyHitInThisAttack(Entity target) => false;
 
     public override bool HandleWeaponCollision(Entity target)
     {
@@ -198,6 +199,12 @@ float speed = 0;
     //     transform.position = position;
     //     _agent.nextPosition = transform.position;
     // }
+    
+    public void OnAttackHit()
+    {
+        //Do nothing (animation request)
+    }
+    
     public void OnAttackFinished()
     {
         _isAttacking = false;
