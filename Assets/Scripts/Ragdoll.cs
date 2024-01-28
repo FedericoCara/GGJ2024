@@ -17,7 +17,7 @@ public class Ragdoll : MonoBehaviour
         SetEnabled(false);
     }
  
-    void SetEnabled(bool enabled)
+    public void SetEnabled(bool enabled)
     {
         normalRigidBody.isKinematic = enabled;
         foreach (var collider in colliders)

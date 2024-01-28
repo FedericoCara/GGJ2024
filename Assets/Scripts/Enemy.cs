@@ -1,25 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Entity
 {
-    public float speedDampTime = 0.1f;              // Default damp time to change the animations based on current speed.
-
     [SerializeField]
     private float _speedAnimationMultiplier = 10f;
 
     [SerializeField]
     private float _range = 1f;
-	
-    private Vector3 colExtents;
 
-    private Collider _collider;
+    [SerializeField]
+    private float _attack = 20;
 
-    private Rigidbody _rigidBody;
-
-    private Animator _animator;
+    [SerializeField]
+    private float _attackCoolDown = 2f;
 
     private NavMeshAgent _agent;
 
@@ -27,13 +22,20 @@ public class Enemy : MonoBehaviour
     Vector2 smoothDeltaPosition = Vector2.zero;
     Vector2 velocity = Vector2.zero;
     Vector3 oldPosition;
-    protected void Awake()
+
+    private float _attackCoolDownTimeRemaining;
+
+    private Action<Enemy> _onEnemyDied;
+
+    public void SetOnEnemyDiedAction(Action<Enemy> action)
     {
-        _collider = GetComponent<Collider>();
-        _rigidBody = GetComponent<Rigidbody>();
+        _onEnemyDied = action;
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
         _agent = GetComponent<NavMeshAgent>();
-        _animator = GetComponent<Animator>();
-		colExtents = _collider.bounds.extents;
         _agent.updatePosition = false;
         _agent.updateRotation = false;
     }  
@@ -94,12 +96,22 @@ float speed = 0;
 
                         if (_agent.velocity.magnitude > 0.1)
                         {
-                        _animator.SetFloat(GenericBehaviour.SpeedParameterHash, _agent.velocity.magnitude);
-                    }
-                    else
-                    {
-		    _animator.SetFloat(GenericBehaviour.SpeedParameterHash, 0, speedDampTime, Time.deltaTime);
-                    }
+                        Animator.SetFloat(GenericBehaviour.SpeedParameterHash, _agent.velocity.magnitude);
+   _agent.nextPosition = Animator.rootPosition;
+                        }
+                        else
+                        {
+                            Animator.SetFloat(GenericBehaviour.SpeedParameterHash, 0, speedDampTime, Time.deltaTime);
+                            _agent.SetDestination(transform.position);
+
+                            if (_attackCoolDownTimeRemaining < 0)
+                            {
+                                Attack("Basic Attack");
+                                _attackCoolDownTimeRemaining = _attackCoolDown;
+                            }
+                            
+
+                        }
                 //         if (shouldMove)
                 //         {
                 //     // Update animation parameters
@@ -115,7 +127,7 @@ float speed = 0;
                     }
                     else
                     {
-		    _animator.SetFloat(GenericBehaviour.SpeedParameterHash, 0, speedDampTime, Time.deltaTime);
+		    Animator.SetFloat(GenericBehaviour.SpeedParameterHash, 0, speedDampTime, Time.deltaTime);
                     _agent.SetDestination(transform.position);
 //transform.position = oldPosition;
                     }
@@ -133,41 +145,39 @@ float speed = 0;
         }
         else
         {
-		    _animator.SetBool(BasicBehaviour.GroundedParameterHash, false);
-		    _animator.SetFloat(GenericBehaviour.SpeedParameterHash, 0, speedDampTime, Time.deltaTime);
+		    Animator.SetBool(BasicBehaviour.GroundedParameterHash, false);
+		    Animator.SetFloat(GenericBehaviour.SpeedParameterHash, 0, speedDampTime, Time.deltaTime);
             _agent.destination = transform.position;
         }
     oldPosition=transform.position;
-   _agent.nextPosition = _animator.rootPosition;
     }
 
-// //         if (velocity.magnitude > 0.5f && _agent.remainingDistance > _range)
-// //         {
-// //         // Update position to agent position
-// //         // transform.position = _agent.nextPosition;
-// //     Vector3 position = _animator.rootPosition;
-// //     position.y = _agent.nextPosition.y;
-// //     transform.position = position;
-// //     _agent.nextPosition = transform.position;
-// //     oldPosition=transform.position;
-// //         }
-// //         else
-// //         {
-// transform.position = _agent.nextPosition;
-// //         }
-//     }
+    // //         if (velocity.magnitude > 0.5f && _agent.remainingDistance > _range)
+    // //         {
+    // //         // Update position to agent position
+    // //         // transform.position = _agent.nextPosition;
+    // //     Vector3 position = _animator.rootPosition;
+    // //     position.y = _agent.nextPosition.y;
+    // //     transform.position = position;
+    // //     _agent.nextPosition = transform.position;
+    // //     oldPosition=transform.position;
+    // //         }
+    // //         else
+    // //         {
+    // transform.position = _agent.nextPosition;
+    // //         }
+    //     }
 
-// void OnAnimatorMove () {
-//     Vector3 position = _animator.rootPosition;
-//     position.y = _agent.nextPosition.y;
-//     transform.position = position;
-//     _agent.nextPosition = transform.position;
-// }
+    // void OnAnimatorMove () {
+    //     Vector3 position = _animator.rootPosition;
+    //     position.y = _agent.nextPosition.y;
+    //     transform.position = position;
+    //     _agent.nextPosition = transform.position;
+    // }
 
-	// Function to tell whether or not the player is on ground.
-	public bool IsGrounded()
-	{
-		Ray ray = new Ray(this.transform.position + Vector3.up * (2 * colExtents.x), Vector3.down);
-		return Physics.SphereCast(ray, colExtents.x, colExtents.x + 0.2f);
-	}
+    protected override void Die()
+    {
+        base.Die();
+        _onEnemyDied?.Invoke(this);
+    }
 }
