@@ -41,6 +41,11 @@ public class GameManager : MonoBehaviour
 
     protected void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Restart();
+        }
+
         if (!_hasGameStarted || _isGameOver)
         {
             return;
