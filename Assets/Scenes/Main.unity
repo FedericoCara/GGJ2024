@@ -412,26 +412,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1043955311396844818, guid: 16f82380756f4cb41886ca89840591df,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2611048749935848327, guid: 16f82380756f4cb41886ca89840591df,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828255782812630982, guid: 16f82380756f4cb41886ca89840591df,
-        type: 3}
-      propertyPath: m_Range
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828255782812630982, guid: 16f82380756f4cb41886ca89840591df,
-        type: 3}
-      propertyPath: m_Shadows.m_Type
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3647276540782605746, guid: 16f82380756f4cb41886ca89840591df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -482,80 +462,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3881713391857935276, guid: 16f82380756f4cb41886ca89840591df,
-        type: 3}
-      propertyPath: m_Range
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 3881713391857935276, guid: 16f82380756f4cb41886ca89840591df,
-        type: 3}
-      propertyPath: m_Shadows.m_Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3922025224266067668, guid: 16f82380756f4cb41886ca89840591df,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4335779078694843115, guid: 16f82380756f4cb41886ca89840591df,
-        type: 3}
-      propertyPath: m_Range
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 4335779078694843115, guid: 16f82380756f4cb41886ca89840591df,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4335779078694843115, guid: 16f82380756f4cb41886ca89840591df,
-        type: 3}
-      propertyPath: m_Intensity
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4335779078694843115, guid: 16f82380756f4cb41886ca89840591df,
-        type: 3}
-      propertyPath: m_Lightmapping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4335779078694843115, guid: 16f82380756f4cb41886ca89840591df,
-        type: 3}
-      propertyPath: m_Shadows.m_Type
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4529578020441983098, guid: 16f82380756f4cb41886ca89840591df,
         type: 3}
       propertyPath: m_Name
       value: Carpa
-      objectReference: {fileID: 0}
-    - target: {fileID: 5619330694569181686, guid: 16f82380756f4cb41886ca89840591df,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6053011009201911982, guid: 16f82380756f4cb41886ca89840591df,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6501739744342860477, guid: 16f82380756f4cb41886ca89840591df,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6709318853849987594, guid: 16f82380756f4cb41886ca89840591df,
-        type: 3}
-      propertyPath: m_Shadows.m_Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9172552110125671300, guid: 16f82380756f4cb41886ca89840591df,
-        type: 3}
-      propertyPath: m_Range
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 9172552110125671300, guid: 16f82380756f4cb41886ca89840591df,
-        type: 3}
-      propertyPath: m_Shadows.m_Type
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
